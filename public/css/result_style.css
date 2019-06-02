@@ -1,0 +1,84 @@
+#res-blo
+{
+  box-sizing: border-box;
+  width: 100%;
+  padding: 50px 20px 20px 20px;
+}
+
+.res-tit-ln
+{
+  font-size: 1.4em;
+}
+
+#end-ln
+{
+  text-align: center;
+}
+
+#rep-but-div
+{
+  box-sizing: border-box;
+  text-align: right;
+}
+
+#res-hea
+{
+    text-align: center;
+}
+
+#sco-div
+{
+  background-color: white;
+  border: 1px solid black;
+  width: 50%;
+  margin: auto;
+  margin-bottom: 50px;
+  padding: 8px;
+  font-size: 1.2em;
+}
+
+#sco-div .sco-ln
+{
+  display: inline-block;
+  width: 25%;
+  font-weight: bold;
+}
+
+#sco-div .score
+{
+}
+
+#err-blo
+{
+  text-align: center;
+  margin-top: 50px;
+}
+
+.err-ln-div
+{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+#err-blo p
+{
+  font-size: 1.2em;
+}
+
+
+.col-squ
+{
+  border: 1px solid black;
+  width: 100px;
+  height: 50px;
+  margin-right: 10px;
+}
+
+.col-name
+{
+  font-weight: bold;
+}
+
