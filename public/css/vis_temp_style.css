@@ -1,0 +1,168 @@
+/* vis-template */
+
+html
+{
+    font-family: arial;
+    
+}
+
+body
+{
+    background-color: #c7eac7;
+}
+
+html, body
+{
+    width: 100%;
+    margin: 0;
+}
+
+button, input[type=submit]
+{
+    font-size: 1em;
+    font-family: arial;
+    cursor: pointer;   
+    padding: 5px 20px;
+    background-color: beige;
+    border-radius: 5px;
+}
+
+input[type=text]
+{
+    font-family: arial;
+}
+
+label
+{
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+button:hover, input[type=submit]:hover
+{
+    background-color: #d3cfcf;
+}
+
+button:active, input[type=submit]:active
+{
+    background-color: #908e99;
+}
+
+select
+{
+    font-family : arial;
+    font-size: 0.8em;
+}
+
+#hea-blo
+{
+    background-color: #efd78d;
+}
+
+#hea-top-blo
+{
+    background-color: #efd78d;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 5px;
+    padding-bottom: 0;
+    text-align: center;
+}
+
+#hea-logo
+{
+    width: 20%;
+    display: flex;
+    align-items: center;
+    
+}
+
+#hea-logo img
+{
+}
+
+#hea-tit-div
+{
+    width: 80%;
+}
+
+#hea-tit-div h1
+{  
+    
+    font-family: 'Permanent Marker';
+    font-style: italic;
+    font-size: 2.5em;
+    color: #776223;
+    
+}
+
+#hea-tit-div h1 span
+{
+    background-color: #d8bb63;
+    padding: 5px;
+    border-radius: 10px;
+}
+
+#hea-med-blo
+{
+   text-align: right;
+   margin-bottom: 10px;
+}
+
+#hea-med-blo em
+{  
+    color: #776223;
+    margin-right: 10px;
+    font-weight: bold;
+}
+
+#hea-bot-blo
+{
+    margin-top: 0;
+}
+
+#hea-nav
+{
+    
+}
+
+#hea-nav-ul
+{
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    list-style-type: none;
+}
+
+#hea-nav-ul li
+{
+    margin-bottom: 10px;
+    margin-right: 20px;
+}
+
+#hea-nav-ul button
+{
+
+}
+
+#cont-blo
+{
+    margin: auto;
+    margin-top: 0;
+    background-color: rgba(255,255,255,0.5);
+    max-width: 1000px;
+    padding: 5px;
+    padding-bottom: 50px;
+}
+
+@media all and (max-width: 768px)
+{
+    #cont-blo
+    {
+    }
+}
