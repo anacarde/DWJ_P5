@@ -1,5 +1,5 @@
 <?php $style = '<link rel="stylesheet" href="css/col_table_style.css">' ?>
-<?php /*$js = '<script src="js/menu-js.js"> </script>'*/ ?>
+<?php $js = '<script src="js/model_js.js"> </script>' ?>
 
 <?php ob_start(); ?>
     <div id='ind-blo'>
@@ -12,86 +12,86 @@
     </div>
     <div id="col-blo-cont">
         <div class="col-blo">
-            <div class="col-squ" style="background-color: blue;"> </div>
+            <div class="col-squ" style="background-color: yellow;"> </div>
             <div class="col-name">
-                <span> Bleu </span>
+                <span> jaune </span>
+            </div>
+        </div>
+        <div class="col-blo">
+            <div class="col-squ" style="background-color: green;"> </div>
+            <div class="col-name">
+                <span> vert </span>
+            </div>
+        </div>
+        <div class="col-blo">
+            <div class="col-squ" style="background-color: violet;"> </div>
+            <div class="col-name">
+                <span> violet </span>
+            </div>
+        </div>
+        <div class="col-blo">
+            <div class="col-squ" style="background-color: white;"> </div>
+            <div class="col-name">
+                <span> blanc </span>
+            </div>
+        </div>
+        <div class="col-blo">
+            <div class="col-squ" style="background-color: black;"> </div>
+            <div class="col-name">
+                <span> noir </span>
+            </div>
+        </div>
+        <div class="col-blo">
+            <div class="col-squ" style="background-color: red;"> </div>
+            <div class="col-name">
+                <span> rouge </span>
             </div>
         </div>
         <div class="col-blo">
             <div class="col-squ" style="background-color: blue;"> </div>
             <div class="col-name">
-                <span> Bleu </span>
+                <span> bleu </span>
             </div>
         </div>
         <div class="col-blo">
-            <div class="col-squ" style="background-color: blue;"> </div>
+            <div class="col-squ" style="background-color: orange;"> </div>
             <div class="col-name">
-                <span> Bleu </span>
+                <span> orange </span>
             </div>
         </div>
         <div class="col-blo">
-            <div class="col-squ" style="background-color: blue;"> </div>
+            <div class="col-squ" style="background-color: brown;"> </div>
             <div class="col-name">
-                <span> Bleu </span>
+                <span> marron </span>
             </div>
         </div>
         <div class="col-blo">
-            <div class="col-squ" style="background-color: blue;"> </div>
+            <div class="col-squ" style="background-color: gray;"> </div>
             <div class="col-name">
-                <span> Bleu </span>
+                <span> gris </span>
             </div>
         </div>
         <div class="col-blo">
-            <div class="col-squ" style="background-color: blue;"> </div>
+            <div class="col-squ" style="background-color: pink;"> </div>
             <div class="col-name">
-                <span> Bleu </span>
+                <span> rose </span>
             </div>
         </div>
         <div class="col-blo">
-            <div class="col-squ" style="background-color: blue;"> </div>
+            <div class="col-squ" style="background-color: beige;"> </div>
             <div class="col-name">
-                <span> Bleu </span>
+                <span> beige </span>
             </div>
         </div>
         <div class="col-blo">
-            <div class="col-squ" style="background-color: blue;"> </div>
+            <div class="col-squ" style="background-color: chartreuse;"> </div>
             <div class="col-name">
-                <span> Bleu </span>
-            </div>
-        </div>
-        <div class="col-blo">
-            <div class="col-squ" style="background-color: blue;"> </div>
-            <div class="col-name">
-                <span> Bleu </span>
-            </div>
-        </div>
-        <div class="col-blo">
-            <div class="col-squ" style="background-color: blue;"> </div>
-            <div class="col-name">
-                <span> Bleu </span>
-            </div>
-        </div>
-        <div class="col-blo">
-            <div class="col-squ" style="background-color: blue;"> </div>
-            <div class="col-name">
-                <span> Bleu </span>
-            </div>
-        </div>
-        <div class="col-blo">
-            <div class="col-squ" style="background-color: blue;"> </div>
-            <div class="col-name">
-                <span> Bleu </span>
-            </div>
-        </div>
-        <div class="col-blo">
-            <div class="col-squ" style="background-color: blue;"> </div>
-            <div class="col-name">
-                <span> Bleu </span>
+                <span> chartreuse </span>
             </div>
         </div>
     </div>
-    <div id='lau-butt'>
-        <button> Lancer le premier jeu </button>
+    <div id='lau-butt-div'>
+        <button id="lau-butt"> Lancer le premier jeu </button>
     </div>
 
 <?php $content = ob_get_clean(); ?>

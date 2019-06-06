@@ -81,6 +81,7 @@ var Carousel = {
                 Carousel.carStopIntAndMv(0, -87.5, 12.5);
             }
             if(e.keyCode === 32) {
+                e.preventDefault();
                 Carousel.carPause();
             }
             if(e.keyCode === 39) {

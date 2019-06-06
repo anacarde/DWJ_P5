@@ -1,5 +1,5 @@
 <?php $style = '<link rel="stylesheet" href="css/game_two_style.css">' ?>
-<?php /*$js = '<script src="js/menu-js.js"> </script>'*/ ?>
+<?php $js = '<script src="js/game_two_js.js"> </script>' ?>
 
 <?php ob_start(); ?>
     <div id="gam-two-cont">
@@ -9,15 +9,14 @@
             </div>
         </div>
         <div id="resp-box">
-<!--             <div id="resp-lab-div">
-                
-            </div> -->
             <div id="resp-inp-div" class="resp-div">
-                <input type="text" id="resp-inp" placeholder="couleur"/>
+                <input type="text" id="resp-inp" placeholder="couleur" autofocus/>
+                <p id="end-ln" class="hidden"> La partie est terminée </p>
             </div>
             <div id="resp-butt-div" class="resp-div">
-                <button> Valider </button>
-                <button> Passer </button>
+                <button id="val-butt"> Valider </button>
+                <button id="pass-butt"> Passer </button>
+                <button id="res-butt" class="hidden"> Passer aux résultats </button>
             </div>
         </div>
     </div>
