@@ -11,7 +11,7 @@
         <div id="resp-box">
             <div id="resp-inp-div" class="resp-div">
                 <input type="text" id="resp-inp" placeholder="couleur" autofocus/>
-                <p id="end-ln" class="hidden"> La partie est terminée </p>
+                <p id="end-ln" class="disp-mode hidden"> La partie est terminée </p>
             </div>
             <div id="resp-butt-div" class="resp-div">
                 <button id="val-butt"> Valider </button>
