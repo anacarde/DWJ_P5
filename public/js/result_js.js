@@ -35,7 +35,10 @@ function ResultManager() {
     }
 
     this.getNumWithFixDenFromFract = function(numEntr, denEntr, denRet) {
-        var numRet = (denRet / (denEntr / numEntr)).toFixed(1);
+        var numRet = (denRet / (denEntr / numEntr));
+        if (!Number.isInteger(numRet)) {
+            numRet = numRet.toFixed(1);
+        }
         return numRet;
     }
 
