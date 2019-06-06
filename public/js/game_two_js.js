@@ -96,6 +96,8 @@ function GameTwoManager() {
     }
 
     this.ansButtFn = function(arr, pass) {
+/*        console.log(this);
+        console.log(self);*/
         clearInterval(this.interval);
         if(arr.length != 0) {
             this.stockAndSwap(arr, pass);
@@ -124,12 +126,32 @@ function GameTwoManager() {
         Sel.resButt.addEventListener('click', this.endButtFn.bind(this, arr));
     }
 
+    this.keyEvt = function(arr) {
+        window.addEventListener("keydown", function(e) {
+            if(e.keyCode === 27) {
+                Sel.passButt.click();
+                Sel.passButt.classList.add("active");
+                setTimeout(function() {
+                    Sel.passButt.classList.remove("active")
+                }, 200);
+            }
+            if(e.keyCode === 13) {
+                Sel.valButt.click();
+                Sel.valButt.classList.add("active");
+                setTimeout(function() {
+                    Sel.valButt.classList.remove("active")
+                }, 200);
+            }
+        });
+    }
+
     this.init = function() {
         this.getJSONSessDataInArr('game-one-col-data');
         this.swapBackColAndRedArr(this.colStorData);
         this.setSandInt(this.colStorData, true);
         this.inpEvt();
         this.buttEvt(this.colStorData);
+        this.keyEvt(this.colStorData);
     }
 }
 

@@ -1,3 +1,4 @@
+
 #gam-two-cont
 {
   width: 100%;
@@ -44,8 +45,7 @@
 
 #resp-inp-div
 {
-  margin-bottom: 50px;
-  
+  margin-bottom: 50px;  
 }
 
 #resp-inp
@@ -56,6 +56,17 @@
   height: 30px;
 }
 
+#end-ln
+{
+  padding: 5px 20px;
+  color: white;
+  background-color: rgba(0,0,0,0.5);
+  font-weight: bold;
+  font-size: 1.3em;
+}
+
+
+
 #resp-inp:active
 {
   border: 1px solid black;
@@ -64,6 +75,11 @@
 #resp-butt-div
 {
     
+}
+
+.disp-mode
+{
+  display: inline-block;
 }
 
 .hidden
