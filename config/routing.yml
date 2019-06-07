@@ -1,0 +1,45 @@
+index:
+  path: /
+  parameters: {}
+  controller: \Src\Controller\page_direction_controller
+  action: goToIndex
+
+menu:
+  path: /play
+  parameters: {}
+  controller: \Src\Controller\
+  action: goToMenu
+
+model:
+  path: /play/model
+  parameters: {}
+  controller: \Src\Controller\
+  action: goToModel
+
+gameOne:
+  path: /play/game-one
+  parameters: {}
+  controller: \Src\Controller\
+  action: goToGameOne
+
+gameTwo:
+  path: /play/game-two
+  parameters: {}
+  controller: \Src\Controller\
+  action: goToGameTwo
+
+result:
+  path: /play/result
+  parameters: {}
+  controller: \Src\Controller\
+  action: goToResult
+
+colorSelect:
+  path: /play/selection
+  parameters: {}
+  controller: \Src\Controller\
+  action: colorSelection
+
+
+
+
