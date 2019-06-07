@@ -1,5 +1,5 @@
-<?php $style = '<link rel="stylesheet" href="css/home_style.css">' ?>
-<?php $js = '<script src="js/home_js.js"> </script>' ?>
+<?php $style = '<link rel="stylesheet" href="css/homeStyle.css">' ?>
+<?php $js = '<script src="js/homeJs.js"> </script>' ?>
 
 <?php ob_start(); ?>
     <div id="cont_inn">
@@ -66,4 +66,4 @@
 <?php $content = ob_get_clean(); ?>
 
 
-<?php require('template/vis_template.php'); ?>
+<?php require('template/visTemplate.php'); ?>

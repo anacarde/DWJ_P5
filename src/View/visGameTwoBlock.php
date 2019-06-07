@@ -1,5 +1,5 @@
-<?php $style = '<link rel="stylesheet" href="css/game_two_style.css">' ?>
-<?php $js = '<script src="js/game_two_js.js"> </script>' ?>
+<?php $style = '<link rel="stylesheet" href="css/gameTwoStyle.css">' ?>
+<?php $js = '<script src="js/gameTwoJs.js"> </script>' ?>
 
 <?php ob_start(); ?>
     <div id="gam-two-cont">
@@ -22,4 +22,4 @@
     </div>
 <?php $content = ob_get_clean(); ?>
 
-<?php require('template/vis_template.php'); ?>
+<?php require('template/visTemplate.php'); ?>

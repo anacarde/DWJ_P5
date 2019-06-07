@@ -1,5 +1,5 @@
-<?php $style = '<link rel="stylesheet" href="css/result_style.css">' ?>
-<?php $js = '<script src="js/result_js.js"> </script>' ?>
+<?php $style = '<link rel="stylesheet" href="css/resultStyle.css">' ?>
+<?php $js = '<script src="js/resultJs.js"> </script>' ?>
 
 <?php ob_start(); ?>
     <div id="res-blo">
@@ -29,7 +29,7 @@
 
 <?php $content = ob_get_clean(); ?>
 
-<?php require('template/vis_template.php'); ?>
+<?php require('template/visTemplate.php'); ?>
 
 
 

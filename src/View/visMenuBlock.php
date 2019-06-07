@@ -1,4 +1,4 @@
-<?php $style = '<link rel="stylesheet" href="css/menu_style.css">' ?>
+<?php $style = '<link rel="stylesheet" href="css/menuStyle.css">' ?>
 
 <?php ob_start(); ?>
     <div>
@@ -58,4 +58,4 @@
     </script>
 <?php $content = ob_get_clean(); ?>
 
-<?php require('template/vis_template.php'); ?>
+<?php require('template/visTemplate.php'); ?>

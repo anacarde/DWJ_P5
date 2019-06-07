@@ -78,7 +78,7 @@ function GameOneStorageBackup() {
     }
 
     this.sdGameRedirect = function() {
-        window.location.replace("http://localhost/Vitrine/vis_game_two_block.php");
+        window.location.replace("http://localhost/Vitrine/visGameTwoBlock.php");
     }
 
     this.stockColDataArrAndRed = function() {

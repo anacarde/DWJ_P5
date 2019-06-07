@@ -109,7 +109,7 @@ function GameTwoManager() {
     }
 
     this.endButtFn = function(arr) {
-        window.location.replace("http://localhost/Vitrine/vis_result_block.php");
+        window.location.replace("http://localhost/Vitrine/visResultBlock.php");
     }
 
     this.inpEvt = function() {

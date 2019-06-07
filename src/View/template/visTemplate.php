@@ -6,7 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link href="https://fonts.googleapis.com/css?family=Permanent+Marker&display=swap" rel="stylesheet">
         <link rel="shortcut icon" href="img/logo_mini.ico">
-        <link rel="stylesheet" href="css/vis_temp_style.css">
+        <link rel="stylesheet" href="css/visTempStyle.css">
         <?= $style ?? null ?>
     </head>
     <body>
