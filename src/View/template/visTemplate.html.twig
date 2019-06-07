@@ -25,15 +25,16 @@
             <div id="hea-bot-blo">
                 <nav id="hea-nav">
                     <ul id="hea-nav-ul">
-                        <li> <button class="nav-butt"> Accueil </button> </li>
-                        <li> <button class="nav-butt"> Jouer </button> </li>
+                        <li> <button id="hom-butt" class="nav-butt"> Accueil </button> </li>
+                        <li> <button id="play-butt" class="nav-butt"> Jouer </button> </li>
                     </ul>
                 </nav>
             </div>
         </div>
         <div id="cont-blo">
-            {% block content %} {% endblock %}
+        {% block content %} {% endblock %}
         </div>
-            {% block script %} {% endblock %}
+        <script src="/js/visTempJs.js"> </script>
+        {% block script %} {% endblock %}
     </body>
 </html>
