@@ -77,13 +77,13 @@ function GameOneStorageBackup() {
         sessionStorage.setItem('game-one-col-data', colDataArr);
     }
 
-    this.sdGameRedirect = function() {
-        window.location.replace("http://localhost/Vitrine/visGameTwoBlock.php");
+    this.sdGameDirect = function() {
+        window.location.replace("/play/model");
     }
 
     this.stockColDataArrAndRed = function() {
         self.stockColDataArr();
-        self.sdGameRedirect();
+        self.sdGameDirect();
     }
 
     this.init = function() {

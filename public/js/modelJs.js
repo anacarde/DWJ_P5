@@ -25,13 +25,13 @@ function ModelStorageBackup() {
         sessionStorage.setItem('col-data', colDataArr);
     }
 
-    this.sdGameRedirect = function() {
-        window.location.replace("http://localhost/Vitrine/visGameOneBlock.php");
+    this.fstGameDirect = function() {
+        window.location.replace("/play/game-one");
     }
 
     this.stockColDataArrAndRed = function() {
         self.stockColDataArr();
-        self.sdGameRedirect();
+        self.fstGameDirect();
     }
 
     this.init = function() {

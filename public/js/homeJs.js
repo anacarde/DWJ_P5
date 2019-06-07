@@ -100,6 +100,10 @@ var Carousel = {
 
 function HomeJs() {
 
+    this.menuBtnFn = function(link) {
+        window.location.replace(link);
+    }
+
     this.init = function() {
         Carousel.carIntFn();
         Carousel.carEvtLis();
