@@ -1,14 +1,14 @@
-x<?php
+<?php
 
 namespace Src\Controller;
 
 use App\Controller;
 
-class PageController extends Controller
+class VisitorPageController extends Controller
 {
-    echo $this->view("visHomeBlock.html.twig", [
-        
 
-
-    ]);
+    public function goToIndex() {
+        echo $this->view("visHomeBlock.html.twig", [
+        ]);
+    }
 }
