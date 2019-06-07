@@ -1,37 +1,37 @@
 index:
   path: /
   parameters: {}
-  controller: \Src\Controller\page_direction_controller
+  controller: \Src\Controller\VisitorPageController
   action: goToIndex
 
 menu:
   path: /play
   parameters: {}
-  controller: \Src\Controller\
+  controller: \Src\Controller\VisitorPageController
   action: goToMenu
 
 model:
   path: /play/model
   parameters: {}
-  controller: \Src\Controller\
+  controller: \Src\Controller\VisitorPageController
   action: goToModel
 
 gameOne:
   path: /play/game-one
   parameters: {}
-  controller: \Src\Controller\
+  controller: \Src\Controller\VisitorPageController
   action: goToGameOne
 
 gameTwo:
   path: /play/game-two
   parameters: {}
-  controller: \Src\Controller\
+  controller: \Src\Controller\VisitorPageController
   action: goToGameTwo
 
 result:
   path: /play/result
   parameters: {}
-  controller: \Src\Controller\
+  controller: \Src\Controller\VisitorPageController
   action: goToResult
 
 colorSelect:
