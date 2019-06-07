@@ -1,7 +1,14 @@
-<?php $style = '<link rel="stylesheet" href="css/homeStyle.css">' ?>
-<?php $js = '<script src="js/homeJs.js"> </script>' ?>
+{% extends "template/visTemplate.html.twig" %}
 
-<?php ob_start(); ?>
+{% block stylesheet %}
+    <link rel="stylesheet" href="/css/homeStyle.css">
+{% endblock %}
+
+{% block script %}
+    <script src="/js/homeJs.js"> </script>
+{% endblock %}
+
+{% block content %}
     <div id="cont_inn">
         <div id="carousel">
             <div id="pause_butt" class="car_butt"> || </div>
@@ -58,12 +65,4 @@
             </div>
         </div>
     </div>
-
-
-
-
-
-<?php $content = ob_get_clean(); ?>
-
-
-<?php require('template/visTemplate.php'); ?>
+{% endblock %}

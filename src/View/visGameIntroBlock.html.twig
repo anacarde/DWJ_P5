@@ -1,7 +1,15 @@
-<?php $style = '<link rel="stylesheet" href="css/colTableStyle.css">' ?>
-<?php $js = '<script src="js/modelJs.js"> </script>' ?>
+{% extends "template/visTemplate.html.twig" %}
 
-<?php ob_start(); ?>
+{% block stylesheet %}
+    <link rel="stylesheet" href="/css/colTableStyle.css">
+{% endblock %}
+
+{% block script %}
+    <script src="/js/modelJs.js"> </script>
+{% endblock %}
+
+
+{% block content %}
     <div id='ind-blo'>
         <p class="main-ind-ln"> <strong> Retenez bien les couleurs et leur nom </strong> </p>
         <div id="gam-ind-ln">
@@ -93,7 +101,4 @@
     <div id='lau-butt-div'>
         <button id="lau-butt"> Lancer le premier jeu </button>
     </div>
-
-<?php $content = ob_get_clean(); ?>
-
-<?php require('template/visTemplate.php'); ?>
+{% endblock %}

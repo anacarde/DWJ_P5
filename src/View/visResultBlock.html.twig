@@ -1,7 +1,14 @@
-<?php $style = '<link rel="stylesheet" href="css/resultStyle.css">' ?>
-<?php $js = '<script src="js/resultJs.js"> </script>' ?>
+{% extends "template/visTemplate.html.twig" %}
 
-<?php ob_start(); ?>
+{% block stylesheet %}
+    <link rel="stylesheet" href="/css/resultStyle.css">
+{% endblock %}
+
+{% block script %}
+    <script src="/js/resultJs.js"> </script>
+{% endblock %}
+
+{% block content %}
     <div id="res-blo">
         <p id="res-note"></p>
         <p id="end-ln" class="res-tit-ln"></p>
@@ -26,21 +33,4 @@
 
         </div>
     </div>
-
-<?php $content = ob_get_clean(); ?>
-
-<?php require('template/visTemplate.php'); ?>
-
-
-
-
-<!--             <div class='err-ln-div'>
-                <span class="col-squ" style="background-color: blue;"> </span>
-                <p> était la couleur <span class="col-name"> bleu </span>, vous avez écrit <span class="col-name"> vert </span>. </p>
-            </div>
-
-
-            <div class='err-ln-div'>
-                <span class="col-squ" style="background-color: blue;"> </span>
-                <p> était la couleur <span class="col-name"> bleu </span>, vous avez écrit <span class="col-name"> vert </span>. </p>
-            </div> -->
+{% endblock %}

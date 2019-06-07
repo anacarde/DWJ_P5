@@ -1,7 +1,14 @@
-<?php $style = '<link rel="stylesheet" href="css/gameTwoStyle.css">' ?>
-<?php $js = '<script src="js/gameTwoJs.js"> </script>' ?>
+{% extends "template/visTemplate.html.twig" %}
 
-<?php ob_start(); ?>
+{% block stylesheet %}
+    <link rel="stylesheet" href="/css/gameTwoStyle.css">
+{% endblock %}
+
+{% block script %}
+    <script src="/js/gameTwoJs.js"> </script>
+{% endblock %}
+
+{% block content %}
     <div id="gam-two-cont">
         <div id="timer-div">
             <div id="tim-tube">
@@ -20,6 +27,4 @@
             </div>
         </div>
     </div>
-<?php $content = ob_get_clean(); ?>
-
-<?php require('template/visTemplate.php'); ?>
+{% endblock %}

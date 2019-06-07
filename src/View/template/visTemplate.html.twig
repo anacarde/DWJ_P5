@@ -4,10 +4,10 @@
         <title> Quelques noms de couleurs </title>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <link href="https://fonts.googleapis.com/css?family=Permanent+Marker&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Permanent+Marker" rel="stylesheet">
         <link rel="shortcut icon" href="img/logo_mini.ico">
         <link rel="stylesheet" href="css/visTempStyle.css">
-        <?= $style ?? null ?>
+        {% block stylesheet %} {% endblock %}
     </head>
     <body>
         <div id="hea-blo">
@@ -32,8 +32,8 @@
             </div>
         </div>
         <div id="cont-blo">
-            <?= $content ?? "hello" ?>
+            {% block content %} {% endblock %}
         </div>
-            <?= $js ?? null ?>
+            {% block script %} {% endblock %}
     </body>
 </html>
