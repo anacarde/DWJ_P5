@@ -2,7 +2,7 @@
 
 namespace Src\Model;
 
-class Chapter {
+class Color {
 
     protected $id,
               $color_name,
