@@ -3,6 +3,7 @@
 namespace Src\Controller;
 
 use App\Controller;
+use Src\Manager\ColorManager;
 
 class VisitorPageController extends Controller
 {
@@ -13,7 +14,11 @@ class VisitorPageController extends Controller
     }
 
     public function goToMenu() {
+/*        var_dump($this->getManager(colorManager::class)->getColNameList());
+        return;*/
         echo $this->view("visMenuBlock.html.twig", [
+            "colNameList" => $this->getManager(colorManager::class)->getColNameList(),
+            "totColNb" => $this->getManager(colorManager::class)->getTotColNb(),
         ]);
     }
 
