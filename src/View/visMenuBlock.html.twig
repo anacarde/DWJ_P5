@@ -12,7 +12,7 @@
     <div>
         <h2> Menu </h2>
     </div>
-    <form id="" action="" method="post">
+    <form id="" action="/play/selection" method="post">
         <div id="grp-opt-div">
             <div class="opt-div">
                 <legend class="opt-ind-ln"> Choix des couleurs: </legend>
@@ -21,11 +21,10 @@
                         <label for="col-fam-opt" class="col-opt-lab"> Par famille </label>
                         <input type="radio" class="col-opt-but" id="col-fam-opt" name="col-filt" value=""/ >
                         <select id="fam-ls" class="invisible" name="fam-col"> 
-                            <option hidden disabled selected value> sélectionner une famille </option>
-                            <option value="green"> vert </option>
-                            <option value="yellow"> jaune </option>
-                            <option value="blue"> bleu </option>
-                            <option value="brown"> marron </option>
+                            <option disabled selected value> sélectionner une famille </option>
+                            {% for colName in colNameList %}
+                                <option value="{{ colName.colorGroup }}"> {{ colName.colorGroup }} </option>
+                            {% endfor %}
                         </select>
                     </div>
                     <div class="col-sel-opt-div">
@@ -36,7 +35,7 @@
             </div>
             <div class="opt-div">
                 <legend  class="opt-ind-ln"> <label for="col-nb-inp"> Choix du nombre: </label> </legend>
-                <input type="text" id="col-nb-inp" name="col-nb" placeholder="Maximum: " value="" />
+                <input type="text" id="col-nb-inp" name="col-nb" placeholder="Maximum: {{ totColNb }}" value="" />
             </div>
             <div class="opt-div">
                 <legend class="opt-ind-ln"> Choix du niveau: </legend>
@@ -47,7 +46,7 @@
             </div>
         </div>
         <div id="form-sub-div">
-            <input type="submit" id="sub-for" class="btn btn-primary" value="Commencer la partie" />
+            <input type="submit" id="sub-for" value="Commencer la partie" />
         </div>
     </form>
 {% endblock %}

@@ -19,13 +19,15 @@
         <p class="main-ind-ln"> <strong> Lorsque vous êtes prêt, appuyez sur le bouton "lancer le premier jeu" au bas. </strong> </p>
     </div>
     <div id="col-blo-cont">
-        <div class="col-blo">
-            <div class="col-squ" style="background-color: yellow;"> </div>
-            <div class="col-name">
-                <span> jaune </span>
+        {% for color in colSel %}
+            <div class="col-blo">
+                <div class="col-squ" style="background-color: {{ color.colorHexCode }};"> </div>
+                <div class="col-name">
+                    <span> {{ color.colorName }} </span>
+                </div>
             </div>
-        </div>
-        <div class="col-blo">
+        {% endfor %}
+ {#        <div class="col-blo">
             <div class="col-squ" style="background-color: green;"> </div>
             <div class="col-name">
                 <span> vert </span>
@@ -96,7 +98,7 @@
             <div class="col-name">
                 <span> chartreuse </span>
             </div>
-        </div>
+        </div> #}
     </div>
     <div id='lau-butt-div'>
         <button id="lau-butt"> Lancer le premier jeu </button>
