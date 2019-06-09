@@ -109,7 +109,7 @@ function GameTwoManager() {
     }
 
     this.endButtFn = function(arr) {
-        window.location.replace("/play/game-two");
+        window.location.replace("/play/result");
     }
 
     this.inpEvt = function() {

@@ -78,7 +78,7 @@ function GameOneStorageBackup() {
     }
 
     this.sdGameDirect = function() {
-        window.location.replace("/play/model");
+        window.location.replace("/play/game-two");
     }
 
     this.stockColDataArrAndRed = function() {
