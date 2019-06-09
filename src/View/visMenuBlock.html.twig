@@ -12,14 +12,14 @@
     <div>
         <h2> Menu </h2>
     </div>
-    <form id="" action="/play/selection" method="post">
+    <form id="sel-form" action="/play/selection" method="post">
         <div id="grp-opt-div">
             <div class="opt-div">
                 <legend class="opt-ind-ln"> Choix des couleurs: </legend>
                 <div id="col-ls-opt-div">
                     <div class="col-sel-opt-div">
                         <label for="col-fam-opt" class="col-opt-lab"> Par famille </label>
-                        <input type="radio" class="col-opt-but" id="col-fam-opt" name="col-filt" value=""/ >
+                        <input type="radio" class="col-opt-but" id="col-fam-opt" name="col-filt" value="fam-filt"/ >
                         <select id="fam-ls" class="invisible" name="fam-col"> 
                             <option disabled selected value> sélectionner une famille </option>
                             {% for colName in colNameList %}
@@ -29,7 +29,7 @@
                     </div>
                     <div class="col-sel-opt-div">
                     <label for="col-rand-opt" class="col-opt-lab"> Aléatoire </label>
-                    <input type="radio" id="col-rand-opt" class="col-opt-but" name="col-filt" value="" />
+                    <input type="radio" id="col-rand-opt" class="col-opt-but" name="col-filt" value="no-filt" />
                     </div>
                 </div>
             </div>
@@ -39,10 +39,10 @@
             </div>
             <div class="opt-div">
                 <legend class="opt-ind-ln"> Choix du niveau: </legend>
-                <input type="radio" id="app-lev" class="level" name="level"  hidden/>
-                <label for="app-lev" class="lev-label"> Apprenti </label>
-                <input type="radio" id="exp-lev" class="level" name="level" hidden/>
-                <label for="exp-lev" class="lev-label"> Expert </label>
+                <input type="radio" id="app-lev" class="level" name="level"  value="app-lev" hidden/>
+                <label for="app-lev" id="app-lev-lab" class="lev-label"> Apprenti </label>
+                <input type="radio" id="exp-lev" class="level" name="level" value="exp-lev" hidden/>
+                <label for="exp-lev" id="exp-lev-lab" class="lev-label"> Expert </label>
             </div>
         </div>
         <div id="form-sub-div">
