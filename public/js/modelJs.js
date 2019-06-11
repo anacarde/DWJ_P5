@@ -26,7 +26,7 @@ function ModelStorageBackup() {
     }
 
     this.fstGameDirect = function() {
-        window.location.replace("/play/game-one");
+        window.location.replace("/play/model/game-one");
     }
 
     this.stockColDataArrAndRed = function() {
