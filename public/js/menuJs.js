@@ -43,13 +43,13 @@ function MenuManager() {
         for (var i = 0 ; i < Sel.colFamName.length ; i++) {
             Sel.colFamName[i].addEventListener('click', function() {
                 var colFam = this.getAttribute('value').trim();
-                self.ajaxGet('/play/sel-col-nb/' + colFam, self.returnColMaxNb);
+                Utils.ajaxGet('/play/sel-col-nb/' + colFam, self.returnColMaxNb);
             })
         }
 
         Sel.colRandOpt.addEventListener('click', function() {
             Sel.famLs.classList.add('invisible');
-            self.ajaxGet('/play/sel-col-nb/rand', self.returnColMaxNb);
+            Utils.ajaxGet('/play/sel-col-nb/rand', self.returnColMaxNb);
         })
 
         Sel.appLev.addEventListener('click', function() {
