@@ -5,11 +5,22 @@
 {% endblock %}
 
 {% block script %}
-    <script src="/js/gameOneJs.js"> </script>
+    {% if serverData == FALSE %}
+        <script src="/js/gameOneSetColJs.js"> </script>
+    {% endif %}
+    <script src="/js/gameOneStoColJs.js"> </script>
 {% endblock %}
 
 {% block content %}
     <div id="col-blo-cont">
+        {% if serverData == TRUE %}
+            {% for color in colSel %}
+                <div class="col-blo">
+                    <div class="col-squ" data-col-name=" {{ color.colorName }}" style="background-color: {{ color.colorHexCode }};"> </div>
+                    <input type="text" class="col-inp" />
+                </div>
+            {% endfor %}
+        {% endif %}
     </div>
     <div id='lau-butt-div'>
         <button id="lau-butt"> Valider mes réponses et lancer le deuxième jeu </button>
