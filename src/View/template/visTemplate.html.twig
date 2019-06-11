@@ -10,6 +10,7 @@
         {% block stylesheet %} {% endblock %}
     </head>
     <body>
+        <button id="adm-con-butt"> </button>
         <div id="hea-blo">
             <div id="hea-top-blo">
                 <div id="hea-logo">
@@ -34,6 +35,20 @@
         <div id="cont-blo">
         {% block content %} {% endblock %}
         </div>
+        <div id="adm-con-inner" class="hidden">
+            <div id="adm-con-block">
+                <button id="close-cross"> X </button>
+                <form id="connex-form" method="POST" action="/admin">
+                    <h4> Administration des couleurs </h4>
+                    <label for="pass-inp" id="pseudo-inp-lab" class="pass-inp-lab"> Pseudo : </label>
+                        <input type="password" id="pseudo-inp" class="data-inp"name="pseudo" />
+                    <label for="pass-inp" id="pass-inp-lab" class="pass-inp-lab"> Mot de passe : </label>
+                        <input type="password" id="password-inp" class="data-inp" name="password" />
+                    <input type="submit" id="form-sub" value="Confirmer" />
+                </form>
+            </div>
+        </div>
+        <script src="/js/utils.js"> </script>
         <script src="/js/visTempJs.js"> </script>
         {% block script %} {% endblock %}
     </body>
