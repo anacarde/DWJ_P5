@@ -22,11 +22,17 @@ model:
   controller: \Src\Controller\VisitorController
   action: goToModel
 
-gameOne:
+gameOneByMenu:
   path: /play/game-one
   parameters: {}
   controller: \Src\Controller\VisitorController
-  action: goToGameOne
+  action: goFromMenuToGameOne
+
+gameOneByModel:
+  path: /play/model/game-one
+  parameters: {}
+  controller: \Src\Controller\VisitorController
+  action: goFromModelToGameOne
 
 gameTwo:
   path: /play/game-two
