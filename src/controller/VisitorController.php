@@ -30,8 +30,6 @@ class VisitorController extends Controller
     }
 
     public function goToMenu() {
-/*        var_dump($this->getManager(colorManager::class)->getColNameList());
-        return;*/
         echo $this->view("visMenuBlock.html.twig", [
             "colNameList" => $this->getManager(colorManager::class)->getColNameList(),
             "totColNb" => $this->getManager(colorManager::class)->getTotColNb(),
@@ -41,17 +39,23 @@ class VisitorController extends Controller
     public function goToModel() {
         $colSelArr = $this->request->getParsedBody();
         $dbMethod = $this->chooseDbMethod($colSelArr);
-/*        echo "<pre>";
-        var_dump( call_user_func([$this->getManager(colorManager::class), $dbMethod], $colSelArr) );
-        return;
-        echo "</pre>";*/
         echo $this->view("visModelBlock.html.twig", [
             "colSel" => call_user_func([$this->getManager(colorManager::class), $dbMethod], $colSelArr),
         ]);
     }
 
-    public function goToGameOne() {
+    public function goFromMenuToGameOne() {
+        $colSelArr = $this->request->getParsedBody();
+        $dbMethod = $this->chooseDbMethod($colSelArr);
         echo $this->view("visGameOneBlock.html.twig", [
+            "colSel" => call_user_func([$this->getManager(colorManager::class), $dbMethod], $colSelArr),
+            "serverData" => TRUE,
+        ]);
+    }
+
+        public function goFromModelToGameOne() {
+        echo $this->view("visGameOneBlock.html.twig", [
+            "serverData" => FALSE,
         ]);
     }
 
