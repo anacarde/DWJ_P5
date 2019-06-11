@@ -1,0 +1,59 @@
+index:
+  path: /
+  parameters: {}
+  controller: \Src\Controller\VisitorController
+  action: goToIndex
+
+menu:
+  path: /play
+  parameters: {}
+  controller: \Src\Controller\VisitorController
+  action: goToMenu
+
+nbSelect:
+  path: /play/sel-col-nb/:filt
+  parameters: {filt: '?<filt>[A-Za-z]+'}
+  controller: \Src\Controller\VisitorController
+  action: nbColSelect
+
+model:
+  path: /play/model
+  parameters: {}
+  controller: \Src\Controller\VisitorController
+  action: goToModel
+
+gameOneByMenu:
+  path: /play/game-one
+  parameters: {}
+  controller: \Src\Controller\VisitorController
+  action: goFromMenuToGameOne
+
+gameOneByModel:
+  path: /play/model/game-one
+  parameters: {}
+  controller: \Src\Controller\VisitorController
+  action: goFromModelToGameOne
+
+gameTwo:
+  path: /play/game-two
+  parameters: {}
+  controller: \Src\Controller\VisitorController
+  action: goToGameTwo
+
+result:
+  path: /play/result
+  parameters: {}
+  controller: \Src\Controller\VisitorController
+  action: goToResult
+
+
+
+# colorSelect:
+#   path: /play/selection
+#   parameters: {}
+#   controller: \Src\Controller\ColSelController
+#   action: colorSelection
+
+
+
+

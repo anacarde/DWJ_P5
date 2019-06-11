@@ -61,12 +61,12 @@
 
 
 
-#lau-butt
+#lau-butt-div
 {
     text-align: center;
 }
 
-#lau-butt button
+#lau-butt
 {
     font-size: 1.2em;
     font-weight: bold;
@@ -75,7 +75,7 @@
 
     /* vis_game_one_css */
 
-.col_inp
+.col-inp
 {
     font-size: 1em;
     background-color: #E3F5E3;

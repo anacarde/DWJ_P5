@@ -2,7 +2,14 @@
 {
   box-sizing: border-box;
   width: 100%;
-  padding: 50px 20px 20px 20px;
+  padding: 20px 20px 20px 20px;
+}
+
+#res-note
+{
+  text-align: center;
+  font-size: 2.4em;
+  font-weight: bold;
 }
 
 .res-tit-ln
@@ -13,6 +20,7 @@
 #end-ln
 {
   text-align: center;
+  font-weight: bold;
 }
 
 #rep-but-div
@@ -40,7 +48,7 @@
 #sco-div .sco-ln
 {
   display: inline-block;
-  width: 25%;
+  width: 100px;
   font-weight: bold;
 }
 
@@ -48,7 +56,7 @@
 {
 }
 
-#err-blo
+.err-blo
 {
   text-align: center;
   margin-top: 50px;
@@ -58,12 +66,14 @@
 {
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
+  width: 80%;
+  margin: auto;
   margin-bottom: 30px;
 }
 
-#err-blo p
+.err-blo p
 {
   font-size: 1.2em;
 }
@@ -82,3 +92,7 @@
   font-weight: bold;
 }
 
+.hidden
+{
+  display: none;
+}

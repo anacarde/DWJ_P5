@@ -29,15 +29,17 @@ var Carousel = {
     },
 
     carPause: function() {
-        Sel.pauseButt.addEventListener('click', function() {
-            if(!Sel.pauseButt.classList.contains('active')) {
-                Sel.pauseButt.classList.add('active');
-                clearInterval(Carousel.carIntMv);
-            } else {
-                Sel.pauseButt.classList.remove('active');
-                Carousel.carIntMv = setInterval(Carousel.carAutoMvFn, Carousel.intNb);
-            }
-        })
+        if(!Sel.pauseButt.classList.contains('active')) {
+            Sel.pauseButt.classList.add('active');
+            clearInterval(Carousel.carIntMv);
+        } else {
+            Sel.pauseButt.classList.remove('active');
+            Carousel.carIntMv = setInterval(Carousel.carAutoMvFn, Carousel.intNb);
+        }
+    },
+
+    carPauseEvt: function() {
+        Sel.pauseButt.addEventListener('click', this.carPause);
     },
 
     carMvWithArr: function(isTransNb, chgSideNb, transBoundNb) {
@@ -61,22 +63,38 @@ var Carousel = {
         }
     },
 
-    carMvLef: function() {
+    carMvLefEvt: function() {
         Sel.lefArr.addEventListener('click', function() {
             Carousel.carStopIntAndMv(0, -87.5, 12.5);
         })
     },
 
-    carMvRig: function() {
+    carMvRigEvt: function() {
         Sel.rigArr.addEventListener('click', function() {
             Carousel.carStopIntAndMv(-87.5, 0, -12.5);
         })
     },
 
+    carWithKeys: function() {
+        window.addEventListener("keydown", function(e) {
+            if(e.keyCode === 37) {
+                Carousel.carStopIntAndMv(0, -87.5, 12.5);
+            }
+            if(e.keyCode === 32) {
+                e.preventDefault();
+                Carousel.carPause();
+            }
+            if(e.keyCode === 39) {
+                Carousel.carStopIntAndMv(-87.5, 0, -12.5);
+            }
+        });
+    },
+
     carEvtLis: function() {
-        this.carPause();
-        this.carMvLef();
-        this.carMvRig();
+        this.carPauseEvt();
+        this.carMvLefEvt();
+        this.carMvRigEvt();
+        this.carWithKeys();
     }
 }
 

@@ -47,7 +47,7 @@ button:hover, input[type=submit]:hover
     background-color: #d3cfcf;
 }
 
-button:active, input[type=submit]:active
+button:active, input[type=submit]:active, button.active
 {
     background-color: #908e99;
 }
