@@ -46,14 +46,8 @@ result:
   controller: \Src\Controller\VisitorController
   action: goToResult
 
-
-
-# colorSelect:
-#   path: /play/selection
-#   parameters: {}
-#   controller: \Src\Controller\ColSelController
-#   action: colorSelection
-
-
-
-
+connexion:
+  path: /connexion
+  parameters: {}
+  controller: \Src\Controller\VisitorController
+  action: checkConnectInfo
