@@ -16,6 +16,18 @@ class VisitorController extends Controller
         return $manMeth;
     }
 
+    public function checkConnectInfo() {
+        $hash = $this->getManager(ConnexionManager::class)->getAdminId();
+        $passInp = $this->request->getQueryParams();
+        if (!password_verify($passInp, $hash)) {
+            echo "Mot de passe incorrect";
+            return;
+        }
+        echo "Connexion à votre espace en cours";
+
+
+    }
+
     public function nbColSelect() {
         if ($this->args["filt"] === "rand") {
             echo $this->getManager(colorManager::class)->getTotColNb();
@@ -53,7 +65,7 @@ class VisitorController extends Controller
         ]);
     }
 
-        public function goFromModelToGameOne() {
+    public function goFromModelToGameOne() {
         echo $this->view("visGameOneBlock.html.twig", [
             "serverData" => FALSE,
         ]);
