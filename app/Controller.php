@@ -4,6 +4,7 @@ namespace App;
 
 use Twig\Environment;
 use Twig\Loader\FilesystemLoader;
+use App\Router\RouterException;
 
 Class Controller
 {
@@ -17,7 +18,7 @@ Class Controller
 
     public function __construct($request, $args)
     {
-        // session_start();
+        session_start();
         $this->request = $request;
         $this->args = $args;
 
@@ -44,12 +45,14 @@ Class Controller
         return header('location:' . $url);
     }
 
-/*    protected function checkConnexion()
+    protected function checkConnexion()
     {
-        return isset($_SESSION['connected']) ? TRUE : FALSE;
+        if (!isset($_SESSION["connexion"]) || $_SESSION["connexion"] != TRUE) {
+            throw new RouterException("Vous ne pouvez pas accéder à l'espace administrateur sans vous être connecté !");
+        }
     }
 
-    protected function checkAdminAction()
+/*    protected function checkAdminAction()
     {
         return $this->request->getQueryParams()['action'] ?? FALSE;
     }*/

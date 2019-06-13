@@ -51,3 +51,9 @@ connexion:
   parameters: {}
   controller: \Src\Controller\VisitorController
   action: checkConnectInfo
+
+admin:
+  path: /admin
+  parameters: {}
+  controller: \Src\Controller\AdminController
+  action: goToAdmin

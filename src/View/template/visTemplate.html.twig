@@ -22,6 +22,7 @@
             </div>
             <div id="hea-med-blo">
                 <em> Un site pour apprendre des noms de couleurs</em>
+                }
             </div>
             <div id="hea-bot-blo">
                 <nav id="hea-nav">
@@ -38,12 +39,14 @@
         <div id="adm-con-inner" class="hidden">
             <div id="adm-con-block">
                 <button id="close-cross"> X </button>
-                <form id="connex-form" method="POST" action="/admin">
+                <form id="connex-form" method="POST" action="/connexion">
                     <h4> Administration des couleurs </h4>
                     <label for="pass-inp" id="pseudo-inp-lab" class="pass-inp-lab"> Pseudo : </label>
                         <input type="password" id="pseudo-inp" class="data-inp"name="pseudo" />
                     <label for="pass-inp" id="pass-inp-lab" class="pass-inp-lab"> Mot de passe : </label>
                         <input type="password" id="password-inp" class="data-inp" name="password" />
+                    <p id="cont-ln" class="hidden"> Des champs ne sont pas remplis </p>
+                    <p id="con-inf" class="hidden"> </p>
                     <input type="submit" id="form-sub" value="Confirmer" />
                 </form>
             </div>

@@ -4,6 +4,7 @@ namespace Src\Controller;
 
 use App\Controller;
 use Src\Manager\ColorManager;
+use Src\Manager\ConnectManager;
 
 class VisitorController extends Controller
 {
@@ -17,15 +18,18 @@ class VisitorController extends Controller
     }
 
     public function checkConnectInfo() {
-        $hash = $this->getManager(ConnexionManager::class)->getAdminId();
-        $passInp = $this->request->getQueryParams();
-        if (!password_verify($passInp, $hash)) {
+        $adminId = $this->getManager(ConnectManager::class)->getAdminId();
+        $userInp = $this->request->getQueryParams();
+        if ($adminId["pseudo"] != $userInp["pseudo"]) {
+            echo "Pseudo administrateur incorrect";
+            return;
+        }
+        if (!password_verify($userInp["password"], $adminId["hash_password"])) {
             echo "Mot de passe incorrect";
             return;
         }
+        $_SESSION["connexion"] = TRUE;
         echo "Connexion à votre espace en cours";
-
-
     }
 
     public function nbColSelect() {

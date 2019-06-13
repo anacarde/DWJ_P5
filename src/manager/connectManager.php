@@ -4,12 +4,12 @@ namespace Src\Manager;
 
 use App\Manager;
 
-class ConnexionManager extends Manager
+class ConnectManager extends Manager
 {
     public function getAdminId()
     {
-        $req = Manager::dbConnect()->query('SELECT password FROM password_jf');
-        $password = $req->fetch(\PDO::FETCH_ASSOC);
-        return $password['password'];
+        $req = Manager::dbConnect()->query('SELECT pseudo, hash_password FROM admin_info');
+        $rep = $req->fetch(\PDO::FETCH_ASSOC);
+        return $rep;
     }
 }

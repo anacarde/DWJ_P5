@@ -3,12 +3,17 @@
 namespace App\Router;
 
 use Zend\Diactoros\ServerRequest;
-use Src\Controller\PageController;
+use Twig\Environment;
+use Twig\Loader\FilesystemLoader;
 
 class RouterException extends \Exception
 {
     public function __construct($message)
     {
-        return (new PageController(null, $message))->error();
+        $loader = new FilesystemLoader(__DIR__. '/../../src/View');
+        $this->twig = new Environment($loader);
+        echo $this->twig->render("errorBlock.html.twig", [
+            "errorMessage" => $message,
+        ]);
     }
 }

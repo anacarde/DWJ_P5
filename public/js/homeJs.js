@@ -108,5 +108,5 @@ function HomeJs() {
 
 var homeJs = new HomeJs;
 
-homeJs.init();
+// homeJs.init();
 
