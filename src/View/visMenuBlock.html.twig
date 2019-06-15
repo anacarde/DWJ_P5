@@ -22,8 +22,8 @@
                         <input type="radio" class="col-opt-but" id="col-fam-opt" name="col-filt" value="fam-filt"/ >
                         <select id="fam-ls" class="invisible" name="col-fam"> 
                             <option disabled selected value> sélectionner une famille </option>
-                            {% for colName in colNameList %}
-                                <option class="col-fam-name" value="{{ colName.colorGroup }}"> {{ colName.colorGroup }} </option>
+                            {% for colGrp in colGrpLs %}
+                                <option class="col-fam-name" value="{{ colGrp.frColGrp }}"> {{ colGrp.frColGrp }} </option>
                             {% endfor %}
                         </select>
                     </div>

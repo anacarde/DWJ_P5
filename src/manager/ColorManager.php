@@ -4,6 +4,7 @@ namespace Src\Manager;
 
 use App\Manager;
 use src\Model\Color;
+use src\Model\ColorGrp;
 
 class ColorManager extends Manager
 {
@@ -22,8 +23,9 @@ class ColorManager extends Manager
     }
 
     public function getColNameList(){
-        $req = Manager::dbConnect()->query('SELECT DISTINCT color_group FROM color_ls');
-        $req->setFetchMode(\PDO::FETCH_CLASS | \PDO::FETCH_PROPS_LATE, 'Src\Model\Color');
+/*        $req = Manager::dbConnect()->query('SELECT DISTINCT color_group FROM color_ls');*/
+        $req = Manager::dbConnect()->query('SELECT fr_color_grp FROM color_grp');
+        $req->setFetchMode(\PDO::FETCH_CLASS | \PDO::FETCH_PROPS_LATE, 'Src\Model\ColorGrp');
         $rep = $req->fetchAll();
         return $rep;
     }

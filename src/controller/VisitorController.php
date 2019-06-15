@@ -47,7 +47,7 @@ class VisitorController extends Controller
 
     public function goToMenu() {
         echo $this->view("visMenuBlock.html.twig", [
-            "colNameList" => $this->getManager(colorManager::class)->getColNameList(),
+            "colGrpLs" => $this->getManager(colorManager::class)->getColNameList(),
             "totColNb" => $this->getManager(colorManager::class)->getTotColNb(),
         ]);
     }
