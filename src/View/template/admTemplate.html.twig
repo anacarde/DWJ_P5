@@ -25,9 +25,16 @@
             <div id="hea-bot-blo">
                 <nav id="hea-nav">
                     <ul id="hea-nav-ul">
-                        <li> <button id="add-col" class="nav-butt"> Ajouter une couleur </button> </li>
-                        <li> <button id="hand-col" class="nav-butt"> Gérer les couleurs </button> </li>
-                        <li> <button id="disconnect" class="nav-butt"> Déconnexion </button> </li>
+                        <li> <button class="nav-butt"> Ajout de couleur </button> </li>
+                        <li id="grp-col-li"> 
+                            <button class="nav-butt"> Modification / Suppression de couleur </button>
+                            <ul id="grp-col-ls">
+                                {% for colGrp in colGrpLs %}
+                                    <li> <button style="background-color: {{ colGrp.enColGrp }};"> Famille des {{ colGrp.frColGrp }} </button> </li>
+                                {% endfor %}
+                            </ul>
+                        </li>
+                        <li> <button class="nav-butt"> Retour à l'espace visiteur </button> </li>
                     </ul>
                 </nav>
             </div>
