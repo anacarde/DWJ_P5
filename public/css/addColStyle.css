@@ -1,0 +1,91 @@
+
+
+    /* Add Color Part */
+
+
+
+#add-col-div
+{
+  background-color: white;
+  width: 70%;
+  margin: auto;
+  margin-top: 20px;
+  border: 1px solid black;
+  padding: 10px;
+}
+
+#clo-cro-div
+{
+  text-align: right;
+}
+
+#close-cross
+{
+    
+}
+
+form
+{
+  display: flex;
+  flex-direction: column;
+}
+
+form div
+{
+  display: flex;
+  align-items: center;
+  margin: 10px 0px;
+}
+
+.flex-rig
+{ 
+  justify-content: flex-start;
+}
+
+.flex-cent
+{
+  justify-content: center;
+}
+
+.inp-lab
+{
+  font-weight: bold;
+  width: 20%;
+}
+
+.inp
+{
+  font-size: 1.1em;
+  box-sizing: border-box;
+  padding: 5px;
+  width: 80%;
+  height: 30px;
+}
+
+#gro-inp
+{
+    
+}
+
+#nam-inp
+{
+    
+}
+
+#hex-inp
+{
+}
+
+#col-prev
+{
+  width: 150px;
+  height: 50px;
+  background-color: red;
+}
+
+#sub-butt
+{
+}
+
+
+

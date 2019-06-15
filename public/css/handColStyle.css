@@ -1,0 +1,45 @@
+
+    /* Handle Color Part */
+
+
+
+#hand-col-div
+{
+
+}
+
+table
+{
+  background-color: white;
+  margin: auto;
+  margin-top: 20px;
+  width: 90%;
+  text-align: center;
+  border-collapse: collapse;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+   user-select: none;
+}
+
+tbody tr:hover
+{
+  background-color: #c9c6bd;
+}
+
+td, th
+{
+  border: 1px solid black;
+}
+
+#ici button
+{
+  padding-right:: 10px;
+}
+
+th
+{
+  padding: 10px;
+}
