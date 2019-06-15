@@ -34,9 +34,9 @@ class VisitorController extends Controller
 
     public function nbColSelect() {
         if ($this->args["filt"] === "rand") {
-            echo $this->getManager(colorManager::class)->getTotColNb();
+            echo $this->getManager(ColorManager::class)->getTotColNb();
         } else {
-            echo $this->getManager(colorManager::class)->getColNbByFam($this->args["filt"]);
+            echo $this->getManager(ColorManager::class)->getColNbByFam($this->args["filt"]);
         }
     }
 
@@ -47,8 +47,8 @@ class VisitorController extends Controller
 
     public function goToMenu() {
         echo $this->view("visMenuBlock.html.twig", [
-            "colGrpLs" => $this->getManager(colorManager::class)->getColNameList(),
-            "totColNb" => $this->getManager(colorManager::class)->getTotColNb(),
+            "colGrpLs" => $this->getManager(ColorManager::class)->getColGrpList(),
+            "totColNb" => $this->getManager(ColorManager::class)->getTotColNb(),
         ]);
     }
 
@@ -56,7 +56,7 @@ class VisitorController extends Controller
         $colSelArr = $this->request->getParsedBody();
         $dbMethod = $this->chooseDbMethod($colSelArr);
         echo $this->view("visModelBlock.html.twig", [
-            "colSel" => call_user_func([$this->getManager(colorManager::class), $dbMethod], $colSelArr),
+            "colSel" => call_user_func([$this->getManager(ColorManager::class), $dbMethod], $colSelArr),
         ]);
     }
 
@@ -64,7 +64,7 @@ class VisitorController extends Controller
         $colSelArr = $this->request->getParsedBody();
         $dbMethod = $this->chooseDbMethod($colSelArr);
         echo $this->view("visGameOneBlock.html.twig", [
-            "colSel" => call_user_func([$this->getManager(colorManager::class), $dbMethod], $colSelArr),
+            "colSel" => call_user_func([$this->getManager(ColorManager::class), $dbMethod], $colSelArr),
             "serverData" => TRUE,
         ]);
     }

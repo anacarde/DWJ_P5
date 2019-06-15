@@ -22,9 +22,9 @@ class ColorManager extends Manager
         return $rep['colFamNb'];
     }
 
-    public function getColNameList(){
+    public function getColGrpList(){
 /*        $req = Manager::dbConnect()->query('SELECT DISTINCT color_group FROM color_ls');*/
-        $req = Manager::dbConnect()->query('SELECT fr_color_grp FROM color_grp');
+        $req = Manager::dbConnect()->query('SELECT fr_color_grp, en_color_grp FROM color_grp');
         $req->setFetchMode(\PDO::FETCH_CLASS | \PDO::FETCH_PROPS_LATE, 'Src\Model\ColorGrp');
         $rep = $req->fetchAll();
         return $rep;
