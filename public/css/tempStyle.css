@@ -1,4 +1,6 @@
-/* vis-template */
+    /* vis-template */
+
+
 
 html
 {
@@ -243,6 +245,78 @@ select
 {
     display: none;
 }
+
+
+
+    /* Admin template */
+
+
+
+
+#grp-col-li
+{
+    position: relative;
+}
+
+#grp-col-li:hover #grp-col-ls
+{
+    max-height: 15em;
+}
+
+#grp-col-ls
+{
+    margin: 0;
+    padding: 0;    
+    list-style-type: none;
+    position: absolute;
+    max-height: 0px;
+    width: 100%;
+    box-sizing: content-box;
+    left: 0;
+    right: 0;
+    overflow: hidden;
+    transition: .2s ease-in;
+}
+
+#grp-col-ls > li
+{
+    text-align: center;
+    padding-left: 5px;
+    margin-top: 5px;
+    margin: 0;
+    padding: 0;
+    
+}
+
+#grp-col-ls > li button
+{
+    width: 100%;
+}
+
+#grp-col-ls > li button:hover
+{
+    font-weight: bold;
+}
+
+#grp-col-ls > li:last-child
+{
+    margin-bottom: 5px;
+}
+
+
+
+#cont-blo
+{
+    margin: auto;
+    margin-top: 0;
+    background-color: rgba(255,255,255,0.5);
+    max-width: 1000px;
+    min-height: 100vh;
+    padding: 5px;
+    padding-bottom: 50px;
+}
+
+
 
 @media all and (max-width: 768px)
 {
