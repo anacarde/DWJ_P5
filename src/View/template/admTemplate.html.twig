@@ -7,6 +7,7 @@
         <link href="https://fonts.googleapis.com/css?family=Permanent+Marker" rel="stylesheet">
         <link rel="shortcut icon" href="/img/logo_mini.ico">
         <link rel="stylesheet" href="/css/tempStyle.css">
+        <link rel="stylesheet" href="/css/addColStyle.css">
         {% block stylesheet %} {% endblock %}
     </head>
     <body>
@@ -25,12 +26,12 @@
             <div id="hea-bot-blo">
                 <nav id="hea-nav">
                     <ul id="hea-nav-ul">
-                        <li> <button class="nav-butt"> Ajout de couleur </button> </li>
+                        <li> <button class="nav-butt" id="add-col-butt"> Ajout de couleur </button> </li>
                         <li id="grp-col-li"> 
-                            <button class="nav-butt"> Modification / Suppression de couleur </button>
+                            <button class="nav-butt" id="han-col-butt"> Modification / Suppression de couleur </button>
                             <ul id="grp-col-ls">
                                 {% for colGrp in colGrpLs %}
-                                    <li> <button style="background-color: {{ colGrp.enColGrp }};"> Famille des {{ colGrp.frColGrp }} </button> </li>
+                                    <li> <button class="col-grp-butt" data-colGrp="{{ colGrp.frColGrp }}" style="background-color: {{ colGrp.enColGrp }};"> Famille des {{ colGrp.frColGrp }}s </button> </li>
                                 {% endfor %}
                             </ul>
                         </li>
@@ -42,6 +43,8 @@
         <div id="cont-blo">
         {% block content %} {% endblock %}
         </div>
+        <script src="/js/utils.js"> </script>
+        <script src="/js/admTempJs.js"> </script>
         {% block script %} {% endblock %}
     </body>
 </html>

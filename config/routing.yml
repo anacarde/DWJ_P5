@@ -57,3 +57,9 @@ admin:
   parameters: {}
   controller: \Src\Controller\AdminController
   action: goToAdmin
+
+addColor:
+  path: /admin/add
+  parameters: {}
+  controller: \Src\Controller\AdminController
+  action: getAddColBlock

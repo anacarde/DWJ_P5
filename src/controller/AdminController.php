@@ -16,4 +16,10 @@ class AdminController extends Controller
                 "colGrpLs" => $this->getManager(ColorManager::class)->getColGrpList(),
             ]);
     }
+
+    public function getAddColBlock() {
+        $this->checkConnexion();
+        echo $this->view("admAddCol.html.twig", [
+        ]);
+    }
 }

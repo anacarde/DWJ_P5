@@ -1,9 +1,3 @@
-
-
-    /* Add Color Part */
-
-
-
 #add-col-div
 {
   background-color: white;
@@ -16,12 +10,13 @@
 
 #clo-cro-div
 {
+  height: 50px;
   text-align: right;
 }
 
-#close-cross
+#close_cross
 {
-    
+       
 }
 
 form
@@ -58,7 +53,7 @@ form div
   font-size: 1.1em;
   box-sizing: border-box;
   padding: 5px;
-  width: 80%;
+  width: 70%;
   height: 30px;
 }
 

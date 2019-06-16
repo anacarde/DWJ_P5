@@ -1,37 +1,26 @@
-{% extends "template/admTemplate.html.twig" %}
-
-{% block stylesheet %}
-    <link rel="stylesheet" href="/css/addColStyle.css">
-{% endblock %}
-
-{% block script %}
-    <script src=""> </script>
-{% endblock %}
-
-{% block content %}
-    <div id="add-col-div">
-        <div id="clo-cro-div">
-            <button id="close-cross"> X </button>
-        </div>
-        <form method="POST" action="">
-            <div class="flex-rig">
-                <label for="gro-inp" class="inp-lab"> Groupe: </label>
-                <input type="text" id="gro-inp" class="inp" name="colorGroup" />
-            </div>
-            <div class="flex-rig">
-                <label for="nam-inp" class="inp-lab"> Nom: </label>
-                <input type="text" id="nam-inp" class="inp" name="colorName" />
-            </div>
-            <div class="flex-rig">
-                <label for="hex-inp" class="inp-lab"> Code HEXA: </label>
-                <input type="text" id="hex-inp" class="inp" name="colorHexCode" />
-            </div>
-            <div class="flex-cent">
-                <div id="col-prev"> </div> 
-            </div>
-            <div class="flex-cent">
-                <input type="submit" id="sub-butt" value="Soumettre ma nouvelle couleur" />
-            </div>
-        </form>
+<div id="add-col-div">
+    <div id="clo-cro-div">
+        <button id="close-cross"> X </button>
     </div>
-{% endblock %}
+    <form method="POST" action="">
+        <div class="flex-rig">
+            <label for="gro-inp" class="inp-lab"> Groupe: </label>
+            <input type="text" id="gro-inp" class="inp" name="colorGroup" />
+        </div>
+        <div class="flex-rig">
+            <label for="nam-inp" class="inp-lab"> Nom: </label>
+            <input type="text" id="nam-inp" class="inp" name="colorName" />
+        </div>
+        <div class="flex-rig">
+            <label for="hex-inp" class="inp-lab"> Code HEXA: </label>
+            <input type="text" id="hex-inp" class="inp" name="colorHexCode" />
+        </div>
+        <div class="flex-cent">
+            <div id="col-prev"> </div> 
+        </div>
+        <div class="flex-cent">
+            <input type="submit" id="sub-butt" value="Soumettre ma nouvelle couleur" />
+        </div>
+    </form>
+    <script src="/js/addColJs.js"> </script>
+</div>
