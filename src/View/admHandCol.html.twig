@@ -1,71 +1,25 @@
-{% extends "template/admTemplate.html.twig" %}
-
-{% block stylesheet %}
-    <link rel="stylesheet" href="/css/handColStyle.css">
-{% endblock %}
-
-{% block script %}
-    <script src=""> </script>
-{% endblock %}
-
-{% block content %}
-    <div id="hand-col-div">
-        <table>
-            <thead>
-                <tr>
-                    <th> Aperçu </th>
-                    <th> Nom </th>
-                    <th> Code Hexa </th>
-                    <th> Action </th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td> Roue </td>
-                    <td> Rouge </td>
-                    <td> #ff0000 </td>
-                    <td class="act-td"> 
-                        <button> Modifier </button>
-                        <button> Supprimer </button>
-                    </td>
-                </tr>
-                <tr>
-                    <td> Vdert </td>
-                    <td> Vert </td>
-                    <td> #ff0000 </td>
-                    <td class="act-td"> 
-                        <button> Modifier </button>
-                        <button> Supprimer </button>
-                    </td>
-                </tr>
-                <tr>
-                    <td> Jausdne </td>
-                    <td> Jaune </td>
-                    <td> #ff0000 </td>
-                    <td class="act-td"> 
-                        <button> Modifier </button>
-                        <button> Supprimer </button>
-                    </td>
-                </tr>
-                <tr>
-                    <td> Nosdir </td>
-                    <td> Noir </td>
-                    <td> #ff0000 </td>
-                    <td class="act-td"> 
-                        <button> Modifier </button>
-                        <button> Supprimer </button>
-                    </td>
-                </tr>
-                <tr>
-                    <td> Blsdeu </td>
-                    <td> Bleu </td>
-                    <td> #ff0000 </td>
-                    <td class="act-td"> 
-                        <button> Modifier </button>
-                        <button> Supprimer </button>
-                    </td>
-                </tr>
-            </tbody>
-        </table>   
-    </div>
-{% endblock %}
+<div id="hand-col-div">
+    <table>
+        <thead>
+            <tr>
+                <th> Aperçu </th>
+                <th> Nom </th>
+                <th> Code Hexa </th>
+                <th> Action </th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for color in colGrp %}
+            <tr>
+                <td style="background-color: {{ color.colorHexCode }} "> </td>
+                <td> {{ color.colorName }} </td>
+                <td> {{ color.colorHexCode }} </td>
+                <td class="act-td"> 
+                    <button data-id="{{ color.id }}"> Modifier </button>
+                    <button data-id="{{ color.id }}"> Supprimer </button>
+                </td>
+            </tr>           
+        {% endfor %}
+        </tbody>
+    </table>   
+</div>
