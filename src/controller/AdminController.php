@@ -22,4 +22,11 @@ class AdminController extends Controller
         echo $this->view("admAddCol.html.twig", [
         ]);
     }
+
+    public function getHandColBlock() {
+        $this->checkConnexion();
+        echo $this->view("admHandCol.html.twig", [
+            "colGrp" => $this->getManager(ColorManager::class)->getColGrp($this->args['colGrp']),
+        ]);
+    }
 }
