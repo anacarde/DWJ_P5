@@ -63,3 +63,15 @@ addColor:
   parameters: {}
   controller: \Src\Controller\AdminController
   action: getAddColBlock
+
+handleColor:
+  path: /admin/handle/:colGrp
+  parameters: {colGrp: '?<colGrp>[a-zA-Z]+'}
+  controller: \Src\Controller\AdminController
+  action: getHandColBlock
+
+# handleColor:
+#   path: /admin/handle/:colGrp
+#   parameters: {colGrp: '?<colGrp>[a-zA-Z]+'}
+#   controller: \Src\Controller\AdminController
+#   action: getHandColBlock
