@@ -255,6 +255,10 @@ select
     /* Admin template */
 
 
+#han-col-butt:hover, #han-col-butt:active
+{
+    background-color: #f5f5dc;    
+}
 
 #grp-col-li
 {
@@ -263,7 +267,7 @@ select
 
 #grp-col-li:hover #grp-col-ls
 {
-    max-height: 15em;
+    max-height: 30em;
 }
 
 #grp-col-ls
@@ -278,7 +282,7 @@ select
     left: 0;
     right: 0;
     overflow: hidden;
-    transition: .2s ease-in;
+    transition: .4s ease-in;
 }
 
 #grp-col-ls > li

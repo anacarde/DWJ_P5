@@ -3,14 +3,14 @@ var Sel = {
     closeCross: document.getElementById("close-cross"),
     contBlo: document.getElementById("cont-blo"),
     addColDiv: document.getElementById("add-col-div"),
-    addColScr: document.getElementById("add-col-scr"),
+    addColSrc: document.getElementById("add-col-src"),
 }
 
 function AddColManager() {
 
     this.closeCrossFn = function() {
         Sel.contBlo.removeChild(Sel.addColDiv);
-        Sel.body.removeChild(Sel.addColScr);
+        Sel.body.removeChild(Sel.addColSrc);
     }
 
     this.closeCrossEvt = function() {

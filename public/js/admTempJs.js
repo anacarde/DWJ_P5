@@ -17,22 +17,36 @@ function AdminManager() {
     this.addColCb = function(rep) {
         TempSel.contBlo.innerHTML = rep;
         var script = document.createElement('script');
-        script.id = "add-col-scr";
+        script.id = "add-col-src";
         script.setAttribute('src', '/js/addColJs.js');
         TempSel.body.appendChild(script);
     }
 
     this.hanColCb = function(rep) {
         TempSel.contBlo.innerHTML = rep;
+        if (document.getElementById("hand-col-src") === null) {
+            var script = document.createElement('script');
+            script.id = "hand-col-src";
+            script.setAttribute('src', '/js/hanColJs.js');
+            TempSel.body.appendChild(script);
+        }
     }
 
     this.addColFn = function() {
         Utils.ajaxGet("/admin/add", self.addColCb);
+        if(document.getElementById("hand-col-src") != null) {
+            TempSel.body.removeChild(document.getElementById("hand-col-src"));
+        }
     }
 
     this.hanColFn = function(colGrpName) {
-         console.log("/admin/handle/" + colGrpName);
         Utils.ajaxGet("/admin/handle/" + colGrpName, self.hanColCb);
+        if(document.getElementById("add-col-src") != null) {
+            TempSel.body.removeChild(document.getElementById("add-col-src"));
+        }
+        if(document.getElementById("hand-col-src") != null) {
+            TempSel.body.removeChild(document.getElementById("hand-col-src"));
+        }
     }
 
     this.buttEvts = function() {
