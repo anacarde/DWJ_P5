@@ -57,6 +57,12 @@ form div
   height: 30px;
 }
 
+.inp.error
+{
+  border: 1px solid red;
+  box-shadow: 0 0 5px 1px red;
+}
+
 #gro-inp
 {
     
@@ -73,14 +79,24 @@ form div
 
 #col-prev
 {
+  border: 1px solid black;
   width: 150px;
   height: 50px;
-  background-color: red;
 }
 
 #sub-butt
 {
 }
 
+.inp-err
+{
+  margin-left: 20%;
+  color: red;
+  font-style: italic;
+}
 
+.hidden
+{
+  display: none;
+}
 

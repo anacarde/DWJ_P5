@@ -2,19 +2,22 @@
     <div id="clo-cro-div">
         <button id="close-cross"> X </button>
     </div>
-    <form method="POST" action="">
+    <form method="POST" action="/cacao">
         <div class="flex-rig">
             <label for="gro-inp" class="inp-lab"> Groupe: </label>
             <input type="text" id="gro-inp" class="inp" name="colorGroup" />
         </div>
+        <span id="gro-inp-err" class="inp-err hidden"></span>
         <div class="flex-rig">
             <label for="nam-inp" class="inp-lab"> Nom: </label>
             <input type="text" id="nam-inp" class="inp" name="colorName" />
         </div>
+        <span id="nam-inp-err" class="inp-err hidden"></span>
         <div class="flex-rig">
             <label for="hex-inp" class="inp-lab"> Code HEXA: </label>
             <input type="text" id="hex-inp" class="inp" name="colorHexCode" />
         </div>
+        <span id="hex-inp-err" class="inp-err hidden"></span>
         <div class="flex-cent">
             <div id="col-prev"> </div> 
         </div>
