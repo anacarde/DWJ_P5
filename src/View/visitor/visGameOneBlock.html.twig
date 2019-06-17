@@ -1,14 +1,14 @@
 {% extends "template/visTemplate.html.twig" %}
 
 {% block stylesheet %}
-    <link rel="stylesheet" href="/css/colModelStyle.css">
+    <link rel="stylesheet" href="/css/visitor/colModelStyle.css">
 {% endblock %}
 
 {% block script %}
     {% if serverData == FALSE %}
-        <script src="/js/gameOneSetColJs.js"> </script>
+        <script src="/js/visitor/gameOneSetColJs.js"> </script>
     {% endif %}
-    <script src="/js/gameOneStoColJs.js"> </script>
+    <script src="/js/visitor/gameOneStoColJs.js"> </script>
 {% endblock %}
 
 {% block content %}

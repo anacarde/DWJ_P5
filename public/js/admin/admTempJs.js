@@ -18,7 +18,7 @@ function AdminManager() {
         TempSel.contBlo.innerHTML = rep;
         var script = document.createElement('script');
         script.id = "add-col-src";
-        script.setAttribute('src', '/js/addColJs.js');
+        script.setAttribute('src', '/js/admin/addColJs.js');
         TempSel.body.appendChild(script);
     }
 
@@ -27,7 +27,7 @@ function AdminManager() {
         if (document.getElementById("hand-col-src") === null) {
             var script = document.createElement('script');
             script.id = "hand-col-src";
-            script.setAttribute('src', '/js/hanColJs.js');
+            script.setAttribute('src', '/js/admin/hanColJs.js');
             TempSel.body.appendChild(script);
         }
     }

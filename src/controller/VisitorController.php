@@ -41,12 +41,12 @@ class VisitorController extends Controller
     }
 
     public function goToIndex() {
-        echo $this->view("visHomeBlock.html.twig", [
+        echo $this->view("visitor/visHomeBlock.html.twig", [
         ]);
     }
 
     public function goToMenu() {
-        echo $this->view("visMenuBlock.html.twig", [
+        echo $this->view("visitor/visMenuBlock.html.twig", [
             "colGrpLs" => $this->getManager(ColorManager::class)->getColGrpList(),
             "totColNb" => $this->getManager(ColorManager::class)->getTotColNb(),
         ]);
@@ -55,7 +55,7 @@ class VisitorController extends Controller
     public function goToModel() {
         $colSelArr = $this->request->getParsedBody();
         $dbMethod = $this->chooseDbMethod($colSelArr);
-        echo $this->view("visModelBlock.html.twig", [
+        echo $this->view("visitor/visModelBlock.html.twig", [
             "colSel" => call_user_func([$this->getManager(ColorManager::class), $dbMethod], $colSelArr),
         ]);
     }
@@ -63,25 +63,25 @@ class VisitorController extends Controller
     public function goFromMenuToGameOne() {
         $colSelArr = $this->request->getParsedBody();
         $dbMethod = $this->chooseDbMethod($colSelArr);
-        echo $this->view("visGameOneBlock.html.twig", [
+        echo $this->view("visitor/visGameOneBlock.html.twig", [
             "colSel" => call_user_func([$this->getManager(ColorManager::class), $dbMethod], $colSelArr),
             "serverData" => TRUE,
         ]);
     }
 
     public function goFromModelToGameOne() {
-        echo $this->view("visGameOneBlock.html.twig", [
+        echo $this->view("visitor/visGameOneBlock.html.twig", [
             "serverData" => FALSE,
         ]);
     }
 
     public function goToGameTwo() {
-        echo $this->view("visGameTwoBlock.html.twig", [
+        echo $this->view("visitor/visGameTwoBlock.html.twig", [
         ]);
     }
 
     public function goToResult() {
-        echo $this->view("visResultBlock.html.twig", [
+        echo $this->view("visitor/visResultBlock.html.twig", [
         ]);
     }
 }
