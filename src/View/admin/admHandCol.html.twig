@@ -2,7 +2,7 @@
     <div id="clo-cro-div">
         <button id="close-cross"> X </button>
     </div>
-    <table>
+    <table data-colgrp="{{ colGrpName.FrColGrp }}">
         <thead>
             <tr>
                 <th> Aperçu </th>
@@ -18,8 +18,8 @@
                 <td> {{ color.colorName }} </td>
                 <td> {{ color.colorHexCode }} </td>
                 <td class="act-td"> 
-                    <button data-id="{{ color.id }}"> Modifier </button>
-                    <button data-id="{{ color.id }}"> Supprimer </button>
+                    <button data-id="{{ color.id }}" class="upd-butt"> Modifier </button>
+                    <button data-id="{{ color.id }}" class="del-butt"> Supprimer </button>
                 </td>
             </tr>           
         {% endfor %}

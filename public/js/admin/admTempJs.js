@@ -4,10 +4,6 @@ var TempSel = {
     hanButt: document.getElementById("han-col-butt"),
     grpButt: document.getElementsByClassName("col-grp-butt"),
     contBlo: document.getElementById("cont-blo"),
-/*       : document.getElementById(""),
-        : document.getElementById(""),
-         : document.getElementById(""),
-*/
 }
 
 function AdminManager() {
@@ -16,23 +12,12 @@ function AdminManager() {
 
     this.addColCb = function(rep) {
         TempSel.contBlo.innerHTML = rep;
-        if (document.getElementById("add-col-src") === null) {
-            var script = document.createElement('script');
-            script.id = "add-col-src";
-            script.setAttribute('src', '/js/admin/addColJs.js');
-            TempSel.body.appendChild(script);       
-        }
-        
+        Utils.rmvAndAddScript(TempSel.body, "add-col-src", "/js/admin/colFormJs.js");
     }
 
-    this.hanColCb = function(rep) {
-        TempSel.contBlo.innerHTML = rep;
-        if (document.getElementById("hand-col-src") === null) {
-            var script = document.createElement('script');
-            script.id = "hand-col-src";
-            script.setAttribute('src', '/js/admin/hanColJs.js');
-            TempSel.body.appendChild(script);
-        }
+    this.hanColCb = function(resp) {
+        TempSel.contBlo.innerHTML = resp;
+        Utils.rmvAndAddScript(TempSel.body, "hand-col-src", "/js/admin/colTableJs.js");
     }
 
     this.addColFn = function() {
@@ -46,9 +31,6 @@ function AdminManager() {
         Utils.ajaxGet("/admin/handle/" + colGrpName, self.hanColCb);
         if(document.getElementById("add-col-src") != null) {
             TempSel.body.removeChild(document.getElementById("add-col-src"));
-        }
-        if(document.getElementById("hand-col-src") != null) {
-            TempSel.body.removeChild(document.getElementById("hand-col-src"));
         }
     }
 

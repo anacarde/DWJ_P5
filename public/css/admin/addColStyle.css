@@ -48,7 +48,7 @@ form div
   width: 20%;
 }
 
-.inp
+.inp, select
 {
   font-size: 1.1em;
   box-sizing: border-box;

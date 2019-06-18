@@ -16,7 +16,7 @@ var Sel = {
     // : document.getElementById(""),
 }
 
-function AddColManager() {
+function ColFormManager() {
 
     var self = this;
     var regexStr = /^[\D]+$/;
@@ -51,10 +51,10 @@ function AddColManager() {
     }
 
     this.subButtCb = function(resp) {
-        if (resp === 1) {
+        if (resp == 1) {
             Utils.actInfMsg(Sel.body, "succ-msg", "couleur bien ajoutée");
         } else {
-            Utils.actInfMsg(Sel.body, "fail-msg", "erreur en base de donnée, couleur non ajoutée");
+            Utils.actInfMsg(Sel.body, "fail-msg", "erreur en base de donnée");
         }
         Sel.groInp.value = "";
         Sel.namInp.value = "";
@@ -68,11 +68,9 @@ function AddColManager() {
         var hexInp = Sel.hexInp.value.trim();
         var paramHexInp = hexInp.replace("#", "%23");
 
-        if (groInp === "" || namInp === "" || hexInp === "" || regexStr.test(groInp) === false || regexStr.test(namInp) === false || regexHex.test(hexInp) === false) {
+        if (groInp === "" || namInp === "" || hexInp === "" || regexStr.test(namInp) === false || regexHex.test(hexInp) === false) {
             if (groInp === "") {
                 this.errFn(Sel.groInp, Sel.groErr, "Ce champ n'est pas rempli");
-            } else if (regexStr.test(groInp) === false) {
-                this.errFn(Sel.groInp, Sel.groErr, "format incorrect");
             }
             if (namInp === "") {
                 this.errFn(Sel.namInp, Sel.namErr, "Ce champ n'est pas rempli");
@@ -86,7 +84,7 @@ function AddColManager() {
             }
             return;
         }
-        Utils.ajaxGet("admin/add/action?colorGroup=" + groInp + "&colorName=" + namInp + "&colorHexCode=" + paramHexInp, this.subButtCb);
+        Utils.ajaxGet("admin/add?colorGroup=" + groInp + "&colorName=" + namInp + "&colorHexCode=" + paramHexInp, this.subButtCb);
     }
 
     this.closeCrossEvt = function() {
@@ -111,6 +109,6 @@ function AddColManager() {
     }
 }
 
-var addColManager = new AddColManager();
+var colFormManager = new ColFormManager();
 
-addColManager.init();
+colFormManager.init();

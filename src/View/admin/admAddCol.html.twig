@@ -5,7 +5,12 @@
     <form method="POST" action="/cacao">
         <div class="flex-rig">
             <label for="gro-inp" class="inp-lab"> Groupe: </label>
-            <input type="text" id="gro-inp" class="inp" name="colorGroup" />
+            <select id="gro-inp" name="colorGroup"> 
+                <option disabled selected hidden></option>
+                {% for colGrp in colGrpLs %}
+                    <option class="col" value="{{ colGrp.frColGrp }}"> {{ colGrp.frColGrp }} </option>
+                {% endfor %}
+            </select> 
         </div>
         <span id="gro-inp-err" class="inp-err hidden"></span>
         <div class="flex-rig">

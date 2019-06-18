@@ -26,6 +26,16 @@ var Utils = {
         setTimeout(function() {
             div.removeChild(infMsg)
         }, 2000);
+    },
+
+    rmvAndAddScript: function(div, id, url) {
+        if (document.getElementById(id) != null) {
+            div.removeChild(document.getElementById(id));
+        }
+        var script = document.createElement('script');
+        script.id = id;
+        script.setAttribute('src', url);
+        div.appendChild(script);
     }
 }
 

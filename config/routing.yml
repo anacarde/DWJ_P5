@@ -64,14 +64,26 @@ addForm:
   controller: \Src\Controller\AdminController
   action: getAddColBlock
 
-addAction:
-  path: /admin/add/action
-  parameters: {}
-  controller: \Src\Controller\AdminController
-  action: addColAction
-
 handleColor:
   path: /admin/handle/:colGrp
   parameters: {colGrp: '?<colGrp>[a-zA-Z]+'}
   controller: \Src\Controller\AdminController
   action: getHandColBlock
+
+add:
+  path: /admin/add
+  parameters: {}
+  controller: \Src\Controller\AdminController
+  action: addAction
+
+delete:
+  path: /admin/delete/:id
+  parameters: {id: '?<id>[\d]+'}
+  controller: \Src\Controller\AdminController
+  action: deleteAction
+
+update:
+  path: /admin/update/:colGrp/:id
+  parameters: {colGrp: '?<colGrp>[a-zA-Z]+', id: '?<id>[\d]+'}
+  controller: \Src\Controller\AdminController
+  action: updateAction

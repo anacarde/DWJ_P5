@@ -48,7 +48,16 @@ class ReadManager extends Manager
         return $rep;
     }
 
-    public function getColGrp($colGrpName) {
+    public function getSingleColGrpName($colGrpName) {
+        $req = Manager::dbConnect()->prepare('SELECT fr_color_grp FROM color_grp WHERE fr_color_grp = :colGrpName');
+        $req->bindValue(':colGrpName', $colGrpName);
+        $req->execute();
+        $req->setFetchMode(\PDO::FETCH_CLASS | \PDO::FETCH_PROPS_LATE, 'Src\Model\ColorGrp');
+        $rep = $req->fetch();
+        return $rep;
+    }
+
+    public function getColGrpContent($colGrpName) {
         $req = Manager::dbConnect()->prepare('SELECT * FROM color_ls WHERE color_group = :colGrpName');
         $req->bindValue(":colGrpName", $colGrpName);
         $req->execute();
