@@ -3,14 +3,14 @@
 namespace Src\Controller;
 
 use App\Controller;
-use Src\Manager\ColorManager;
+use Src\Manager\ReadManager;
 use Src\Manager\ConnectManager;
 
 class VisitorController extends Controller
 {
     private function chooseDbMethod(Array $array) {        
         if($array["col-filt"] === "fam-filt") {
-            $manMeth = "getColByFam"; 
+            $manMeth = "getFamCol"; 
         } else {
             $manMeth = "getRandCol";
         }
@@ -34,9 +34,9 @@ class VisitorController extends Controller
 
     public function nbColSelect() {
         if ($this->args["filt"] === "rand") {
-            echo $this->getManager(ColorManager::class)->getTotColNb();
+            echo $this->getManager(ReadManager::class)->getTotColNb();
         } else {
-            echo $this->getManager(ColorManager::class)->getColNbByFam($this->args["filt"]);
+            echo $this->getManager(ReadManager::class)->getColNbByFam($this->args["filt"]);
         }
     }
 
@@ -47,8 +47,8 @@ class VisitorController extends Controller
 
     public function goToMenu() {
         echo $this->view("visitor/visMenuBlock.html.twig", [
-            "colGrpLs" => $this->getManager(ColorManager::class)->getColGrpList(),
-            "totColNb" => $this->getManager(ColorManager::class)->getTotColNb(),
+            "colGrpLs" => $this->getManager(ReadManager::class)->getColGrpList(),
+            "totColNb" => $this->getManager(ReadManager::class)->getTotColNb(),
         ]);
     }
 
@@ -56,7 +56,7 @@ class VisitorController extends Controller
         $colSelArr = $this->request->getParsedBody();
         $dbMethod = $this->chooseDbMethod($colSelArr);
         echo $this->view("visitor/visModelBlock.html.twig", [
-            "colSel" => call_user_func([$this->getManager(ColorManager::class), $dbMethod], $colSelArr),
+            "colSel" => call_user_func([$this->getManager(ReadManager::class), $dbMethod], $colSelArr),
         ]);
     }
 
@@ -64,7 +64,7 @@ class VisitorController extends Controller
         $colSelArr = $this->request->getParsedBody();
         $dbMethod = $this->chooseDbMethod($colSelArr);
         echo $this->view("visitor/visGameOneBlock.html.twig", [
-            "colSel" => call_user_func([$this->getManager(ColorManager::class), $dbMethod], $colSelArr),
+            "colSel" => call_user_func([$this->getManager(ReadManager::class), $dbMethod], $colSelArr),
             "serverData" => TRUE,
         ]);
     }

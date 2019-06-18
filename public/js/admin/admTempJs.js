@@ -16,10 +16,13 @@ function AdminManager() {
 
     this.addColCb = function(rep) {
         TempSel.contBlo.innerHTML = rep;
-        var script = document.createElement('script');
-        script.id = "add-col-src";
-        script.setAttribute('src', '/js/admin/addColJs.js');
-        TempSel.body.appendChild(script);
+        if (document.getElementById("add-col-src") === null) {
+            var script = document.createElement('script');
+            script.id = "add-col-src";
+            script.setAttribute('src', '/js/admin/addColJs.js');
+            TempSel.body.appendChild(script);       
+        }
+        
     }
 
     this.hanColCb = function(rep) {
@@ -33,7 +36,7 @@ function AdminManager() {
     }
 
     this.addColFn = function() {
-        Utils.ajaxGet("/admin/add", self.addColCb);
+        Utils.ajaxGet("/admin/add/form", self.addColCb);
         if(document.getElementById("hand-col-src") != null) {
             TempSel.body.removeChild(document.getElementById("hand-col-src"));
         }
@@ -60,8 +63,7 @@ function AdminManager() {
     this.init = function() {
         this.buttEvts();
     }
-
-
+    
 }
 
 var adminManager = new AdminManager();

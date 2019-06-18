@@ -15,8 +15,18 @@ var Utils = {
         });
 
         req.send(null);
-    }
+    },
 
+    actInfMsg: function(div, className, msg) {
+        var infMsg = document.createElement("p");
+        infMsg.id = "act-inf-msg";
+        infMsg.classList.add(className);
+        infMsg.textContent = msg;
+        div.appendChild(infMsg);
+        setTimeout(function() {
+            div.removeChild(infMsg)
+        }, 2000);
+    }
 }
 
 /*

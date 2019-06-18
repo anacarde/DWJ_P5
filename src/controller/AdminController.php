@@ -3,8 +3,10 @@
 namespace Src\Controller;
 
 use App\Controller;
-use Src\Manager\ColorManager;
-/*use Src\Manager\ColorManager;
+use Src\Model\Color;
+use Src\Manager\ReadManager;
+use Src\Manager\ActionManager;
+/*use Src\Manager\ReadManager;
 use Src\Manager\ConnectManager;*/
 
 class AdminController extends Controller
@@ -12,8 +14,7 @@ class AdminController extends Controller
     public function goToAdmin() {
         $this->checkConnexion();
         echo $this->view("template/admTemplate.html.twig", [
-/*                "colGrpName" => $this->getManager(ColorManager::class)->getColGrpList(),*/
-                "colGrpLs" => $this->getManager(ColorManager::class)->getColGrpList(),
+                "colGrpLs" => $this->getManager(ReadManager::class)->getColGrpList(),
             ]);
     }
 
@@ -23,10 +24,16 @@ class AdminController extends Controller
         ]);
     }
 
+    public function addColAction() {
+        $colObj = $this->getManager(Color::class, $this->request->getQueryParams());
+        $reqSucc = $this->getManager(ActionManager::class)->add($colObj);
+        echo $reqSucc;
+    }
+
     public function getHandColBlock() {
         $this->checkConnexion();
         echo $this->view("admin/admHandCol.html.twig", [
-            "colGrp" => $this->getManager(ColorManager::class)->getColGrp($this->args['colGrp']),
+            "colGrp" => $this->getManager(ReadManager::class)->getColGrp($this->args['colGrp']),
         ]);
     }
 }

@@ -58,20 +58,20 @@ admin:
   controller: \Src\Controller\AdminController
   action: goToAdmin
 
-addColor:
-  path: /admin/add
+addForm:
+  path: /admin/add/form
   parameters: {}
   controller: \Src\Controller\AdminController
   action: getAddColBlock
+
+addAction:
+  path: /admin/add/action
+  parameters: {}
+  controller: \Src\Controller\AdminController
+  action: addColAction
 
 handleColor:
   path: /admin/handle/:colGrp
   parameters: {colGrp: '?<colGrp>[a-zA-Z]+'}
   controller: \Src\Controller\AdminController
   action: getHandColBlock
-
-# handleColor:
-#   path: /admin/handle/:colGrp
-#   parameters: {colGrp: '?<colGrp>[a-zA-Z]+'}
-#   controller: \Src\Controller\AdminController
-#   action: getHandColBlock

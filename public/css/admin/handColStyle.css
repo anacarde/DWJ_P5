@@ -24,7 +24,6 @@ table
   background-color: white;
   margin: auto;
   margin-top: 20px;
-  width: 90%;
   text-align: center;
   border-collapse: collapse;
   -webkit-touch-callout: none;
@@ -43,6 +42,13 @@ tbody tr:hover
 td, th
 {
   border: 1px solid black;
+  padding: 10px;
+}
+
+th:first-of-type
+{
+  padding: 0px 30px;
+  background-color: yellow;
 }
 
 #ici button

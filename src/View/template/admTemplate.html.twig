@@ -7,6 +7,7 @@
         <link href="https://fonts.googleapis.com/css?family=Permanent+Marker" rel="stylesheet">
         <link rel="shortcut icon" href="/img/logo_mini.ico">
         <link rel="stylesheet" href="/css/tempStyle.css">
+        <link rel="stylesheet" href="/css/admTempStyle.css">
         <link rel="stylesheet" href="/css/admin/addColStyle.css">
         <link rel="stylesheet" href="/css/admin/handColStyle.css">
         {% block stylesheet %} {% endblock %}
@@ -29,7 +30,7 @@
                     <ul id="hea-nav-ul">
                         <li> <button class="nav-butt" id="add-col-butt"> Ajout de couleur </button> </li>
                         <li id="grp-col-li"> 
-                            <button class="nav-butt" id="han-col-butt"> Modification / Suppression de couleur </button>
+                            <button class="nav-butt" id="han-col-butt" disabled> Modification / Suppression de couleur </button>
                             <ul id="grp-col-ls">
                                 {% for colGrp in colGrpLs %}
                                     <li> <button class="col-grp-butt" data-colGrp="{{ colGrp.frColGrp }}" style="background-color: {{ colGrp.enColGrp }};"> Famille des {{ colGrp.frColGrp }}s </button> </li>

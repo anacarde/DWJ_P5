@@ -2,8 +2,8 @@
 
 namespace Src\Model;
 
-class Color {
-
+class Color 
+{
     protected $id,
               $color_name,
               $color_hex_code,
@@ -37,7 +37,7 @@ class Color {
 
     public function setColorName($colorName)
     {
-        $this->color_name = (int) $colorName; 
+        $this->color_name = (string) $colorName; 
     }
 
     public function setColorHexCode($colorHexCode)

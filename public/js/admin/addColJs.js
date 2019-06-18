@@ -50,26 +50,43 @@ function AddColManager() {
         errSel.classList.remove("hidden");
     }
 
+    this.subButtCb = function(resp) {
+        if (resp === 1) {
+            Utils.actInfMsg(Sel.body, "succ-msg", "couleur bien ajoutée");
+        } else {
+            Utils.actInfMsg(Sel.body, "fail-msg", "erreur en base de donnée, couleur non ajoutée");
+        }
+        Sel.groInp.value = "";
+        Sel.namInp.value = "";
+        Sel.hexInp.value = "";
+    }
+
     this.subButtFn = function(e) {
         e.preventDefault();
-        if (Sel.groInp.value.trim() === "" || Sel.namInp.value.trim() === "" || Sel.hexInp.value.trim() === "" || regexStr.test(Sel.groInp.value.trim()) === false || regexStr.test(Sel.namInp.value.trim()) === false || regexHex.test(Sel.hexInp.value.trim()) === false) {
-            if (Sel.groInp.value.trim() === "") {
+        var groInp = Sel.groInp.value.trim();
+        var namInp = Sel.namInp.value.trim();
+        var hexInp = Sel.hexInp.value.trim();
+        var paramHexInp = hexInp.replace("#", "%23");
+
+        if (groInp === "" || namInp === "" || hexInp === "" || regexStr.test(groInp) === false || regexStr.test(namInp) === false || regexHex.test(hexInp) === false) {
+            if (groInp === "") {
                 this.errFn(Sel.groInp, Sel.groErr, "Ce champ n'est pas rempli");
-            } else if (regexStr.test(Sel.groInp.value.trim()) === false) {
+            } else if (regexStr.test(groInp) === false) {
                 this.errFn(Sel.groInp, Sel.groErr, "format incorrect");
             }
-            if (Sel.namInp.value.trim() === "") {
+            if (namInp === "") {
                 this.errFn(Sel.namInp, Sel.namErr, "Ce champ n'est pas rempli");
-            } else if (regexStr.test(Sel.namInp.value.trim()) === false) {
+            } else if (regexStr.test(namInp) === false) {
                 this.errFn(Sel.namInp, Sel.namErr, "format incorrect");
             }
-            if (Sel.hexInp.value.trim() === "") {
+            if (hexInp === "") {
                 this.errFn(Sel.hexInp, Sel.hexErr, "Ce champ n'est pas rempli");
-            } else if (regexHex.test(Sel.hexInp.value.trim()) === false) {
+            } else if (regexHex.test(hexInp) === false) {
                 this.errFn(Sel.hexInp, Sel.hexErr, "format incorrect");
             }
             return;
         }
+        Utils.ajaxGet("admin/add/action?colorGroup=" + groInp + "&colorName=" + namInp + "&colorHexCode=" + paramHexInp, this.subButtCb);
     }
 
     this.closeCrossEvt = function() {
