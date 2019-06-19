@@ -20,14 +20,24 @@ class AdminController extends Controller
 
     public function getAddColBlock() {
         $this->checkConnexion();
-        echo $this->view("admin/admAddCol.html.twig", [
+        echo $this->view("admin/admColForm.html.twig", [
             "colGrpLs" => $this->getManager(ReadManager::class)->getColGrpList(),
+            "action" => "add"
         ]);
     }
 
-    public function getHandColBlock() {
+    public function getUpdColBlock() {
         $this->checkConnexion();
-        echo $this->view("admin/admHandCol.html.twig", [
+        echo $this->view("admin/admColForm.html.twig", [
+            "colGrpLs" => $this->getManager(ReadManager::class)->getColGrpList(),
+            "colUpdInf" => $this->request->getQueryParams(),
+            "action" => "update"
+        ]);
+    }
+
+    public function getColTableBlock() {
+        $this->checkConnexion();
+        echo $this->view("admin/admColTable.html.twig", [
             "colGrp" => $this->getManager(ReadManager::class)->getColGrpContent($this->args['colGrp']),
             "colGrpName" => $this->getManager(ReadManager::class)->getSingleColGrpName($this->args['colGrp']),
         ]);

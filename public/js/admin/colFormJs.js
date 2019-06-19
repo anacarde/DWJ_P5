@@ -4,7 +4,7 @@ var Sel = {
     closeCross: document.getElementById("close-cross"),
     contBlo: document.getElementById("cont-blo"),
     addColDiv: document.getElementById("add-col-div"),
-    addColSrc: document.getElementById("add-col-src"),
+    addColSrc: document.getElementById("col-form-src"),
     groInp: document.getElementById("gro-inp"),
     namInp: document.getElementById("nam-inp"),
     hexInp: document.getElementById("hex-inp"),

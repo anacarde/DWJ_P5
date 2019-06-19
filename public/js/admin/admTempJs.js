@@ -10,27 +10,27 @@ function AdminManager() {
 
     var self = this;
 
-    this.addColCb = function(rep) {
-        TempSel.contBlo.innerHTML = rep;
-        Utils.rmvAndAddScript(TempSel.body, "add-col-src", "/js/admin/colFormJs.js");
+    this.addColCb = function(resp) {
+        TempSel.contBlo.innerHTML = resp;
+        Utils.rmvAndAddScript(TempSel.body, "col-form-src", "/js/admin/colFormJs.js");
     }
 
     this.hanColCb = function(resp) {
         TempSel.contBlo.innerHTML = resp;
-        Utils.rmvAndAddScript(TempSel.body, "hand-col-src", "/js/admin/colTableJs.js");
+        Utils.rmvAndAddScript(TempSel.body, "col-table-src", "/js/admin/colTableJs.js");
     }
 
     this.addColFn = function() {
-        Utils.ajaxGet("/admin/add/form", self.addColCb);
-        if(document.getElementById("hand-col-src") != null) {
-            TempSel.body.removeChild(document.getElementById("hand-col-src"));
+        Utils.ajaxGet("/admin/form/add", self.addColCb);
+        if(document.getElementById("col-table-src") != null) {
+            TempSel.body.removeChild(document.getElementById("col-table-src"));
         }
     }
 
     this.hanColFn = function(colGrpName) {
-        Utils.ajaxGet("/admin/handle/" + colGrpName, self.hanColCb);
-        if(document.getElementById("add-col-src") != null) {
-            TempSel.body.removeChild(document.getElementById("add-col-src"));
+        Utils.ajaxGet("/admin/table/" + colGrpName, self.hanColCb);
+        if(document.getElementById("col-form-src") != null) {
+            TempSel.body.removeChild(document.getElementById("col-form-src"));
         }
     }
 

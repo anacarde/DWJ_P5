@@ -59,16 +59,22 @@ admin:
   action: goToAdmin
 
 addForm:
-  path: /admin/add/form
+  path: /admin/form/add
   parameters: {}
   controller: \Src\Controller\AdminController
   action: getAddColBlock
 
-handleColor:
-  path: /admin/handle/:colGrp
+updateForm:
+  path: /admin/form/update
+  parameters: {}
+  controller: \Src\Controller\AdminController
+  action: getUpdColBlock
+
+colorTable:
+  path: /admin/table/:colGrp
   parameters: {colGrp: '?<colGrp>[a-zA-Z]+'}
   controller: \Src\Controller\AdminController
-  action: getHandColBlock
+  action: getColTableBlock
 
 add:
   path: /admin/add
