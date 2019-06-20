@@ -32,7 +32,7 @@ form
     display: flex;
     flex-direction: row;
     align-items: center;
-    margin-bottom: 50px;
+    margin: 25px 0px;
 }
 
 #col-ls-opt-div
@@ -87,10 +87,18 @@ form
 
 #form-sub-div
 {
-    
+    margin-top: 25px;
 }
 
 .level:checked + label
 {
     background-color: #b9d0e8;
+}
+
+.error
+{
+    margin: 0;
+    margin-left: 200px;
+    color: red;
+    font-style: italic;
 }

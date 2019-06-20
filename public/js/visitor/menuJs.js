@@ -87,12 +87,30 @@ function MenuManager() {
             }
         })
 
-        Sel.form.addEventListener('submit', this.getInputInfo);
+        Sel.form.addEventListener('submit', function(e) {
+            if ((Sel.colFamOpt.checked === false && Sel.colRandOpt.checked === false) || (Sel.colFamOpt.checked === true && Sel.famLs.value === "sélectionner une famille")  || (Sel.appOpt === false && Sel.expOpt === false) || Sel.colNbInp.value === "" || Number.isInteger(Sel.colNbInp.value) === false) {
+                e.preventDefault();
+                if (Sel.colFamOpt.checked === false && Sel.colRandOpt.checked === false) {
+                    Utils.inpErrMsg();
+                }
+                if (Sel.colFamOpt.checked === true && Sel.famLs.value === "sélectionner une famille") {
+                    Utils.inpErrMsg();
+                }
+                if (Number.isInteger(Sel.colNbInp.value) === false) {
+                    Utils.inpErrMsg();
+                }
+                if (Sel.appOpt === false && Sel.expOpt === false) {
+                    Utils.inpErrMsg();
+                }
+            }
+            this.getInputInfo();
+        });
     }
 
     this.init = function() {
         this.setSessionInpInf();
         this.managerEvts();
+        console.log(Sel.famLs.value);
     }
 
 }

@@ -17,6 +17,14 @@ var Utils = {
         req.send(null);
     },
 
+    inpErrMsg: function(div, msgId, msgClass, msg) {
+        var errMsg = document.createElement("p");
+        errMsg.classList.add(msgClass);
+        errMsg.id = msgId;
+        errMsg.textContent = msg;
+        div.appendChild(errMsg);
+    },
+
     actInfMsg: function(div, className, msg) {
         var infMsg = document.createElement("p");
         infMsg.id = "act-inf-msg";
@@ -38,8 +46,3 @@ var Utils = {
         div.appendChild(script);
     }
 }
-
-/*
-getQueryParams()
-
-*/
