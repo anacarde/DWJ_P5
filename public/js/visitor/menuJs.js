@@ -5,33 +5,56 @@ var Sel = {
     colRandOpt: document.getElementById("col-rand-opt"),
     famLs: document.getElementById("fam-ls"),
     colNbInp: document.getElementById("col-nb-inp"),
-    appLev: document.getElementById("app-lev-lab"),
-    expLev: document.getElementById("exp-lev-lab"),
+    appOpt: document.getElementById("app-lev"),
+    expOpt: document.getElementById("exp-lev"),
+    appLab: document.getElementById("app-lev-lab"),
+    expLab: document.getElementById("exp-lev-lab"),
 }
 
 function MenuManager() {
 
     var self = this;
 
-    this.ajaxGet = function(url, callback) {
-        var req = new XMLHttpRequest();
-        req.open("GET", url);
-        req.addEventListener("load", function() {
-            if (req.status >= 200 && req.status < 400) {
-               callback(req.responseText);
+    this.setSessionInpInf = function() {
+        if (sessionStorage.getItem("vis-sel-info")) {
+            OptObj = JSON.parse(sessionStorage.getItem("vis-sel-info"));
+            if (OptObj.grpOpt === "colFamOpt") {
+                Sel.colFamOpt.checked = true;
+                Sel.famLs.classList.remove('invisible');
+                Sel.famLs.value = OptObj.famName;
             } else {
-               console.error(req.status + " " + req.statusText + " " + url);
+                Sel.colRandOpt.checked = true;
             }
-        });
-        req.addEventListener("error", function() {
-            console.error("Erreur réseau avec l'URL " + url);
-        });
-
-        req.send(null);
+            Sel.colNbInp.value = OptObj.number;
+            if (OptObj.level === "appLev") {
+                Sel.appOpt.checked = true;
+            } else {
+                Sel.expOpt.checked = true;
+            }
+        }
     }
 
     this.returnColMaxNb = function($data) {
         Sel.colNbInp.setAttribute('placeholder', "Maximum: " + $data);
+    }
+
+    this.getInputInfo = function() {
+        var OptObj = {};
+        if (Sel.colFamOpt.checked === true) {
+            OptObj.grpOpt = "colFamOpt";
+            OptObj.famName = Sel.famLs.value;
+        } else {
+            OptObj.grpOpt = "colRandOpt";
+        }
+        OptObj.number = Sel.colNbInp.value;
+        if (Sel.appOpt.checked === true) {
+            OptObj.level = "appLev";
+        } else {
+            OptObj.level = "expLev";
+        }
+
+        var visSelInfo = JSON.stringify(OptObj);
+        sessionStorage.setItem("vis-sel-info", visSelInfo);
     }
 
     this.managerEvts = function() {
@@ -52,31 +75,31 @@ function MenuManager() {
             Utils.ajaxGet('/play/sel-col-nb/rand', self.returnColMaxNb);
         })
 
-        Sel.appLev.addEventListener('click', function() {
+        Sel.appLab.addEventListener('click', function() {
             if(Sel.form.getAttribute("action") !== "/play/model") {
                 Sel.form.setAttribute("action", "/play/model");
             }
         })
 
-        Sel.expLev.addEventListener('click', function() {
+        Sel.expLab.addEventListener('click', function() {
             if(Sel.form.getAttribute("action") !== "/play/game-one") {
                 Sel.form.setAttribute("action", "/play/game-one");
             }
         })
 
-        Sel.form.addEventListener('submit', function() {
-            var ColSel = {
-                grp: 
-            }
-            sessionStorage.setItem("col-select", );
-        })
+        Sel.form.addEventListener('submit', this.getInputInfo);
+    }
+
+    this.init = function() {
+        this.setSessionInpInf();
+        this.managerEvts();
     }
 
 }
 
 var menuManager = new MenuManager;
 
-menuManager.managerEvts();
+menuManager.init();
 
 
 

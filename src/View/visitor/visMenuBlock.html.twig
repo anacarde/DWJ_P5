@@ -21,7 +21,7 @@
                         <label for="col-fam-opt" class="col-opt-lab"> Par famille </label>
                         <input type="radio" class="col-opt-but" id="col-fam-opt" name="col-filt" value="fam-filt"/ >
                         <select id="fam-ls" class="invisible" name="col-fam"> 
-                            <option disabled selected value> sélectionner une famille </option>
+                            <option disabled selected > sélectionner une famille </option>
                             {% for colGrp in colGrpLs %}
                                 <option class="col-fam-name" value="{{ colGrp.frColGrp }}"> {{ colGrp.frColGrp }} </option>
                             {% endfor %}
