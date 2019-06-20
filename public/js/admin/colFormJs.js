@@ -13,7 +13,6 @@ var FormSel = {
     groErr: document.getElementById("gro-inp-err"),
     namErr: document.getElementById("nam-inp-err"),
     hexErr: document.getElementById("hex-inp-err"),
-    // : document.getElementById(""),
 }
 
 function ColFormManager() {
@@ -35,6 +34,12 @@ function ColFormManager() {
     this.formCloseEvt = function() {
         FormSel.formClose.addEventListener("click", this.formCloseFn);
     }
+
+    this.formCloAndOpTb = function() {
+        FormSel.contBlo.removeChild(FormSel.colFormDiv);
+        FormSel.body.removeChild(FormSel.colFormSrc);
+        adminManager.hanColFn(FormSel.groInp.value);
+    } 
 
     this.addErrNode = function(msg, msgId) {
         var errMsg = document.createElement("p");
@@ -59,7 +64,7 @@ function ColFormManager() {
         errSel.classList.remove("hidden");
     }
 
-    this.subButtCb = function(resp) {
+    this.subButtAddCb = function(resp) {
         if (resp == 1) {
             Utils.actInfMsg(FormSel.body, "succ-msg", "couleur bien ajoutée");
         } else {
@@ -68,6 +73,16 @@ function ColFormManager() {
         FormSel.groInp.value = "";
         FormSel.namInp.value = "";
         FormSel.hexInp.value = "";
+    }
+
+    this.subButtUpdCb = function(resp) {
+        console.log(this);
+        if (resp == 1) {
+            Utils.actInfMsg(FormSel.body, "succ-msg", "couleur bien modifiée");
+        } else {
+            Utils.actInfMsg(FormSel.body, "fail-msg", "erreur en base de donnée");
+        }
+        self.formCloAndOpTb();
     }
 
     this.subButtFn = function(e) {
@@ -94,9 +109,15 @@ function ColFormManager() {
             return;
         }
         if (self.formAction === "add") {
-            Utils.ajaxGet("admin/add?colorGroup=" + groInp + "&colorName=" + namInp + "&colorHexCode=" + paramHexInp, this.subButtCb);   
+            Utils.ajaxGet("admin/add?colorGroup=" + groInp + "&colorName=" + namInp + "&colorHexCode=" + paramHexInp, this.subButtAddCb);   
         } else if (self.formAction === "update") {
-            Utils.ajaxGet("admin/update?colorGroup=" + groInp + "&colorName=" + namInp + "&colorHexCode=" + paramHexInp, this.subButtCb);  
+            var ColObj = {
+                id: FormSel.colFormDiv.getAttribute("data-id"),
+                grp: FormSel.groInp.value,
+                name: FormSel.namInp.value,
+                hexa: FormSel.hexInp.value.replace("#", "%23"),
+            }
+            Utils.ajaxGet("admin/update?id=" + ColObj.id + "&colorGroup=" + ColObj.grp + "&colorName=" + ColObj.name + "&colorHexCode=" + ColObj.hexa, this.subButtUpdCb);  
         }   
     }
 
@@ -111,10 +132,17 @@ function ColFormManager() {
         FormSel.form.addEventListener("submit", this.subButtFn.bind(this));
     }
 
+    this.initColSqu = function() {
+        if (FormSel.hexInp.value != "") {
+            FormSel.colSqu.style.backgroundColor = FormSel.hexInp.value;
+        }
+    }
+
     this.init = function() {
         this.formCloseEvt();
         this.inpEvts();
         this.subButtEvt();
+        this.initColSqu();
     }
 }
 

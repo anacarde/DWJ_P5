@@ -23,4 +23,14 @@ class ActionManager extends Manager
         $rep = $req->execute();
         return $rep;
     }
+
+    public function update(Color $colObj) {
+        $req = Manager::dbConnect()->prepare('UPDATE color_ls SET color_name = :colName, color_hex_code = :colHex, color_group = :colGrp WHERE id = :colId');
+        $req->bindValue(':colId', $colObj->getId());
+        $req->bindValue(':colName', $colObj->getColorName());
+        $req->bindValue(':colHex', $colObj->getColorHexCode());
+        $req->bindValue(':colGrp', $colObj->getColorGroup());
+        $rep = $req->execute();
+        return $rep;
+    }
 }

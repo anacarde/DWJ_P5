@@ -89,7 +89,7 @@ delete:
   action: deleteAction
 
 update:
-  path: /admin/update/:colGrp/:id
-  parameters: {colGrp: '?<colGrp>[a-zA-Z]+', id: '?<id>[\d]+'}
+  path: /admin/update
+  parameters: {}
   controller: \Src\Controller\AdminController
   action: updateAction

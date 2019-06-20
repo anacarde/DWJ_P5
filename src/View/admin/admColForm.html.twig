@@ -1,4 +1,4 @@
-<div id="col-form-div" data-action="{{ action }}">
+<div id="col-form-div" data-action="{{ action }}" {{ action == "update" ? "data-id=" ~ colUpdInf.id }}>
     <div id="clo-cro-div">
         <button id="form-close"> X </button>
     </div>

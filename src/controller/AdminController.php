@@ -54,6 +54,12 @@ class AdminController extends Controller
         $this->checkConnexion();
         $reqSucc = $this->getManager(ActionManager::class)->delete($this->args['id']);
         echo $reqSucc;
+    }
 
-    } 
+    public function updateAction() {
+        $this->checkConnexion(); 
+        $colObj = $this->getManager(Color::class, $this->request->getQueryParams());
+        $reqSucc = $this->getManager(ActionManager::class)->update($colObj);
+        echo $reqSucc;
+    }
 }
