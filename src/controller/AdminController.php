@@ -62,4 +62,9 @@ class AdminController extends Controller
         $reqSucc = $this->getManager(ActionManager::class)->update($colObj);
         echo $reqSucc;
     }
+
+    public function disconnectAction() {
+        $_SESSION['connexion'] = FALSE;
+        $this->redirect("/");
+    }
 }

@@ -2,6 +2,7 @@ var TempSel = {
     body: document.querySelector('body'),
     addButt: document.getElementById("add-col-butt"),
     hanButt: document.getElementById("han-col-butt"),
+    backVisButt: document.getElementById("back-vis-butt"),
     grpButt: document.getElementsByClassName("col-grp-butt"),
     contBlo: document.getElementById("cont-blo"),
 }
@@ -34,12 +35,18 @@ function AdminManager() {
         }
     }
 
+    this.backVisFn = function() {
+        window.location = "/admin/disconnect";
+    }
+
     this.buttEvts = function() {
         TempSel.addButt.addEventListener('click', this.addColFn);
 
         for (var i = 0 ; i < TempSel.grpButt.length ; i++) {
             TempSel.grpButt[i].addEventListener('click', this.hanColFn.bind(this, TempSel.grpButt[i].getAttribute("data-colGrp")) );
         }
+
+        TempSel.backVisButt.addEventListener('click', this.backVisFn);
     }
 
     this.init = function() {

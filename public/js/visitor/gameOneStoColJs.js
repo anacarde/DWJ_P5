@@ -20,7 +20,7 @@ function GameOneStorageBackup() {
     }
 
     this.stockColDataArr = function() {
-        sessionStorage.clear();
+        sessionStorage.removeItem("col-data");
         colDataArr = JSON.stringify(self.getColDataArr());
         sessionStorage.setItem('game-one-col-data', colDataArr);
     }

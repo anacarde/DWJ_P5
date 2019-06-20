@@ -22,7 +22,7 @@ class ReadManager extends Manager
         return $rep['colFamNb'];
     }
 
-    public function getFamCol(Array $arr){
+    public function getColByFam(Array $arr){
         $req = Manager::dbConnect()->prepare('SELECT color_hex_code, color_name FROM color_ls WHERE color_group = :colFam ORDER BY RAND() LIMIT :colNb');
         $req->bindValue(":colFam", $arr["col-fam"]);
         $req->bindValue(":colNb", $arr["col-nb"], \PDO::PARAM_INT);

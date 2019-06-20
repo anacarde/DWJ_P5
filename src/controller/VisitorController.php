@@ -10,7 +10,7 @@ class VisitorController extends Controller
 {
     private function chooseDbMethod(Array $array) {        
         if($array["col-filt"] === "fam-filt") {
-            $manMeth = "getFamCol"; 
+            $manMeth = "getColByFam"; 
         } else {
             $manMeth = "getRandCol";
         }

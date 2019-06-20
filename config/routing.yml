@@ -93,3 +93,9 @@ update:
   parameters: {}
   controller: \Src\Controller\AdminController
   action: updateAction
+
+disconnect:
+  path: /admin/disconnect
+  parameters: {}
+  controller: \Src\Controller\AdminController
+  action: disconnectAction

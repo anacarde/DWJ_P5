@@ -7,6 +7,7 @@ var Sel = {
     endLn: document.getElementById('end-ln'),
     errBlo1: document.getElementById('err-blo-1'),
     errBlo2: document.getElementById('err-blo-2'),
+    redButt: document.getElementById('red-butt'),
 }
 
 function ResultManager() {
@@ -100,6 +101,13 @@ function ResultManager() {
         }
     }
 
+    this.menuRedirectEvt = function() {
+        Sel.redButt.addEventListener("click", function() {
+            sessionStorage.clear();
+            window.location = "/play";
+        })
+    }
+
     this.init = function() {
         this.gameOneArr = this.getJSONSessDataInArr('game-one-col-data');
         this.gameTwoArr = this.getJSONSessDataInArr('game-two-col-data');
@@ -116,8 +124,7 @@ function ResultManager() {
         this.dispEndLine(this.aveNum, Sel.endLn);
         this.dispGameErrFromArr(this.gameOneArr , Sel.errBlo1);
         this.dispGameErrFromArr(this.gameTwoArr , Sel.errBlo2);
-/*        console.log(this.gameOneRes);
-        console.log(this.gameTwoRes);*/
+        this.menuRedirectEvt();
     }
 
 }
@@ -125,19 +132,3 @@ function ResultManager() {
 var resultManager = new ResultManager;
 
 resultManager.init();
-
-
-
-
-
-
-
-
-
-
-
-
-/*    this.dispResGamFromArr = function(arr, resVar, div) {
-        resVar = this.getResGameFromArr(arr, resVar);
-        div.textContent = String(resVar) + '/' + String(arr.length);
-    }*/

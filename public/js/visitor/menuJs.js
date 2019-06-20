@@ -63,6 +63,13 @@ function MenuManager() {
                 Sel.form.setAttribute("action", "/play/game-one");
             }
         })
+
+        Sel.form.addEventListener('submit', function() {
+            var ColSel = {
+                grp: 
+            }
+            sessionStorage.setItem("col-select", );
+        })
     }
 
 }
