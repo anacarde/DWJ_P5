@@ -1,10 +1,10 @@
-var Sel = {
+var TabSel = {
     body: document.querySelector("body"),
     contBlo: document.getElementById("cont-blo"),
-    closeCross: document.getElementById("close-cross"),
+    tableClose: document.getElementById("table-close"),
     table: document.querySelector("table"),
-    hanColDiv: document.getElementById("hand-col-div"),
-    hanColSrc: document.getElementById("col-table-src"),
+    colTableDiv: document.getElementById("col-table-div"),
+    colTableSrc: document.getElementById("col-table-src"),
     updButt: document.getElementsByClassName("upd-butt"),
     delButt: document.getElementsByClassName("del-butt"),
 }
@@ -13,27 +13,27 @@ function ColTableManager() {
 
     var self = this;
 
-    this.closeCrossFn = function() {
-        Sel.contBlo.removeChild(Sel.hanColDiv);
-        Sel.body.removeChild(Sel.hanColSrc);
+    this.tableCloseFn = function() {
+        TabSel.contBlo.removeChild(TabSel.colTableDiv);
+        TabSel.body.removeChild(TabSel.colTableSrc);
     }
 
-    this.closeCrossEvt = function() {
-        Sel.closeCross.addEventListener('click', this.closeCrossFn);
+    this.tableCloseEvt = function() {
+        TabSel.tableClose.addEventListener('click', this.tableCloseFn);
     }
 
     this.updBlockCb = function(resp) {
         TempSel.contBlo.innerHTML = resp;
-        Utils.rmvAndAddScript(Sel.body, "col-table-src", "/js/admin/colTableJs.js");
+        Utils.rmvAndAddScript(TabSel.body, "col-table-src", "/js/admin/colTableJs.js");
     }
 
     this.deleteFnCb = function(resp) {
         if (resp == 1) {
-            var colGrp = Sel.table.getAttribute("data-colgrp");
-            Utils.actInfMsg(Sel.body, "succ-msg", "couleur bien supprimée");
+            var colGrp = TabSel.table.getAttribute("data-colgrp");
+            Utils.actInfMsg(TabSel.body, "succ-msg", "couleur bien supprimée");
             Utils.ajaxGet("/admin/table/" + colGrp, this.updBlockCb);
         } else {
-            Utils.actInfMsg(Sel.body, "fail-msg", "erreur en base de donnée");
+            Utils.actInfMsg(TabSel.body, "fail-msg", "erreur en base de donnée");
         }
     }
 
@@ -42,35 +42,35 @@ function ColTableManager() {
     }
 
     this.updColForm = function(resp) {
-        Sel.contBlo.innerHTML += resp;
-        Utils.rmvAndAddScript(Sel.body, "col-form-src", "/js/admin/colFormJs.js");
+        TabSel.contBlo.insertAdjacentHTML('beforeend', resp);
+        Utils.rmvAndAddScript(TabSel.body, "col-form-src", "/js/admin/colFormJs.js");
     }
 
     this.updateFn = function(colObj) {
-        Sel.hanColDiv.classList.add("hidden");
+        TabSel.colTableDiv.classList.add("hidden");
         Utils.ajaxGet("/admin/form/update?id=" + colObj.id + "&grp=" + colObj.grp + "&name=" + colObj.name + "&hex=" + colObj.hex, self.updColForm);
     }
 
-    this.btnEvts = function() {
-        for (var i = 0 ; i < Sel.delButt.length ; i++) {
-            Sel.delButt[i].addEventListener('click', this.deleteFn.bind(this, Sel.delButt[i].getAttribute("data-id")));
+    this.tableAllbtnEvts = function() {
+        for (var i = 0 ; i < TabSel.delButt.length ; i++) {
+            TabSel.delButt[i].addEventListener('click', this.deleteFn.bind(this, TabSel.delButt[i].getAttribute("data-id")));
         }   
 
-        for (var i = 0 ; i < Sel.updButt.length ; i++) {
+        for (var i = 0 ; i < TabSel.updButt.length ; i++) {
             var ColObj = {
-                id: Sel.updButt[i].getAttribute("data-id"),
-                name: Sel.updButt[i].getAttribute("data-name"),
-                hex: Sel.updButt[i].getAttribute("data-hex").replace("#", "%23"),
-                grp: Sel.table.getAttribute("data-colgrp"),
+                id: TabSel.updButt[i].getAttribute("data-id"),
+                name: TabSel.updButt[i].getAttribute("data-name"),
+                hex: TabSel.updButt[i].getAttribute("data-hex").replace("#", "%23"),
+                grp: TabSel.table.getAttribute("data-colgrp"),
             }
 
-            Sel.updButt[i].addEventListener('click', this.updateFn.bind(this, ColObj));
+            TabSel.updButt[i].addEventListener('click', this.updateFn.bind(this, ColObj));
         }
     }
 
     this.init = function() {
-        this.closeCrossEvt();
-        this.btnEvts();
+        this.tableCloseEvt();
+        this.tableAllbtnEvts();
     }
 }
 

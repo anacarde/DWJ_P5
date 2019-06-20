@@ -1,10 +1,10 @@
-var Sel = {
+var FormSel = {
     body: document.querySelector("body"),
     form: document.querySelector("form"),
-    closeCross: document.getElementById("close-cross"),
+    formClose: document.getElementById("form-close"),
     contBlo: document.getElementById("cont-blo"),
-    addColDiv: document.getElementById("add-col-div"),
-    addColSrc: document.getElementById("col-form-src"),
+    colFormDiv: document.getElementById("col-form-div"),
+    colFormSrc: document.getElementById("col-form-src"),
     groInp: document.getElementById("gro-inp"),
     namInp: document.getElementById("nam-inp"),
     hexInp: document.getElementById("hex-inp"),
@@ -22,9 +22,18 @@ function ColFormManager() {
     var regexStr = /^[\D]+$/;
     var regexHex = /^#[a-zA-Z0-9]{6}$/;
 
-    this.closeCrossFn = function() {
-        Sel.contBlo.removeChild(Sel.addColDiv);
-        Sel.body.removeChild(Sel.addColSrc);
+    this.formAction = FormSel.colFormDiv.getAttribute("data-action");
+
+    this.formCloseFn = function() {
+        FormSel.contBlo.removeChild(FormSel.colFormDiv);
+        FormSel.body.removeChild(FormSel.colFormSrc);
+        if (self.formAction === "update") {
+            document.getElementById("col-table-div").classList.remove("hidden");
+        }
+    }
+
+    this.formCloseEvt = function() {
+        FormSel.formClose.addEventListener("click", this.formCloseFn);
     }
 
     this.addErrNode = function(msg, msgId) {
@@ -40,8 +49,8 @@ function ColFormManager() {
     }
 
     this.filColSquFn = function() {
-        var hexCode = Sel.hexInp.value.trim();
-        Sel.colSqu.style.backgroundColor = hexCode; 
+        var hexCode = FormSel.hexInp.value.trim();
+        FormSel.colSqu.style.backgroundColor = hexCode; 
     }
 
     this.errFn = function(inpSel, errSel, msg) {
@@ -52,58 +61,58 @@ function ColFormManager() {
 
     this.subButtCb = function(resp) {
         if (resp == 1) {
-            Utils.actInfMsg(Sel.body, "succ-msg", "couleur bien ajoutée");
+            Utils.actInfMsg(FormSel.body, "succ-msg", "couleur bien ajoutée");
         } else {
-            Utils.actInfMsg(Sel.body, "fail-msg", "erreur en base de donnée");
+            Utils.actInfMsg(FormSel.body, "fail-msg", "erreur en base de donnée");
         }
-        Sel.groInp.value = "";
-        Sel.namInp.value = "";
-        Sel.hexInp.value = "";
+        FormSel.groInp.value = "";
+        FormSel.namInp.value = "";
+        FormSel.hexInp.value = "";
     }
 
     this.subButtFn = function(e) {
         e.preventDefault();
-        var groInp = Sel.groInp.value.trim();
-        var namInp = Sel.namInp.value.trim();
-        var hexInp = Sel.hexInp.value.trim();
+        var groInp = FormSel.groInp.value.trim();
+        var namInp = FormSel.namInp.value.trim();
+        var hexInp = FormSel.hexInp.value.trim();
         var paramHexInp = hexInp.replace("#", "%23");
 
         if (groInp === "" || namInp === "" || hexInp === "" || regexStr.test(namInp) === false || regexHex.test(hexInp) === false) {
             if (groInp === "") {
-                this.errFn(Sel.groInp, Sel.groErr, "Ce champ n'est pas rempli");
+                this.errFn(FormSel.groInp, FormSel.groErr, "Ce champ n'est pas rempli");
             }
             if (namInp === "") {
-                this.errFn(Sel.namInp, Sel.namErr, "Ce champ n'est pas rempli");
+                this.errFn(FormSel.namInp, FormSel.namErr, "Ce champ n'est pas rempli");
             } else if (regexStr.test(namInp) === false) {
-                this.errFn(Sel.namInp, Sel.namErr, "format incorrect");
+                this.errFn(FormSel.namInp, FormSel.namErr, "format incorrect");
             }
             if (hexInp === "") {
-                this.errFn(Sel.hexInp, Sel.hexErr, "Ce champ n'est pas rempli");
+                this.errFn(FormSel.hexInp, FormSel.hexErr, "Ce champ n'est pas rempli");
             } else if (regexHex.test(hexInp) === false) {
-                this.errFn(Sel.hexInp, Sel.hexErr, "format incorrect");
+                this.errFn(FormSel.hexInp, FormSel.hexErr, "format incorrect");
             }
             return;
         }
-        Utils.ajaxGet("admin/add?colorGroup=" + groInp + "&colorName=" + namInp + "&colorHexCode=" + paramHexInp, this.subButtCb);
-    }
-
-    this.closeCrossEvt = function() {
-        Sel.closeCross.addEventListener("click", this.closeCrossFn);
+        if (self.formAction === "add") {
+            Utils.ajaxGet("admin/add?colorGroup=" + groInp + "&colorName=" + namInp + "&colorHexCode=" + paramHexInp, this.subButtCb);   
+        } else if (self.formAction === "update") {
+            Utils.ajaxGet("admin/update?colorGroup=" + groInp + "&colorName=" + namInp + "&colorHexCode=" + paramHexInp, this.subButtCb);  
+        }   
     }
 
     this.inpEvts = function() {
-        Sel.groInp.addEventListener("focus", this.inpFocFn.bind(Sel.groInp, Sel.groErr));
-        Sel.namInp.addEventListener("focus", this.inpFocFn.bind(Sel.namInp, Sel.namErr));
-        Sel.hexInp.addEventListener("focus", this.inpFocFn.bind(Sel.hexInp, Sel.hexErr));
-        Sel.hexInp.addEventListener("input", this.filColSquFn);
+        FormSel.groInp.addEventListener("focus", this.inpFocFn.bind(FormSel.groInp, FormSel.groErr));
+        FormSel.namInp.addEventListener("focus", this.inpFocFn.bind(FormSel.namInp, FormSel.namErr));
+        FormSel.hexInp.addEventListener("focus", this.inpFocFn.bind(FormSel.hexInp, FormSel.hexErr));
+        FormSel.hexInp.addEventListener("input", this.filColSquFn);
     }
 
     this.subButtEvt = function() {
-        Sel.form.addEventListener("submit", this.subButtFn.bind(this));
+        FormSel.form.addEventListener("submit", this.subButtFn.bind(this));
     }
 
     this.init = function() {
-        this.closeCrossEvt();
+        this.formCloseEvt();
         this.inpEvts();
         this.subButtEvt();
     }

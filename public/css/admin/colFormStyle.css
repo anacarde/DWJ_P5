@@ -1,4 +1,4 @@
-#add-col-div
+#col-form-div
 {
   background-color: white;
   width: 70%;
@@ -14,7 +14,7 @@
   text-align: right;
 }
 
-#close_cross
+#form-close
 {
        
 }
