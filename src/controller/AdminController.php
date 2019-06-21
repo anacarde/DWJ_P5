@@ -6,11 +6,10 @@ use App\Controller;
 use Src\Model\Color;
 use Src\Manager\ReadManager;
 use Src\Manager\ActionManager;
-/*use Src\Manager\ReadManager;
-use Src\Manager\ConnectManager;*/
 
 class AdminController extends Controller
 {
+
     public function goToAdmin() {
         $this->checkConnexion();
         echo $this->view("template/admTemplate.html.twig", [
@@ -30,7 +29,7 @@ class AdminController extends Controller
         $this->checkConnexion();
         echo $this->view("admin/admColForm.html.twig", [
             "colGrpLs" => $this->getManager(ReadManager::class)->getColGrpList(),
-            "colUpdInf" => $this->request->getQueryParams(),
+            "colUpdInf" => $this->request->getParsedBody(),
             "action" => "update"
         ]);
     }
@@ -45,7 +44,11 @@ class AdminController extends Controller
 
     public function addAction() {
         $this->checkConnexion();
-        $colObj = $this->getManager(Color::class, $this->request->getQueryParams());
+        if ($this->checkPostData() === false) {
+            echo 2;
+            return;
+        }
+        $colObj = $this->getManager(Color::class, $this->request->getParsedBody());
         $reqSucc = $this->getManager(ActionManager::class)->add($colObj);
         echo $reqSucc;
     }
@@ -57,8 +60,8 @@ class AdminController extends Controller
     }
 
     public function updateAction() {
-        $this->checkConnexion(); 
-        $colObj = $this->getManager(Color::class, $this->request->getQueryParams());
+        $this->checkConnexion();
+        $colObj = $this->getManager(Color::class, $this->request->getParsedBody());
         $reqSucc = $this->getManager(ActionManager::class)->update($colObj);
         echo $reqSucc;
     }

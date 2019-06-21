@@ -5,6 +5,7 @@ namespace Src\Controller;
 use App\Controller;
 use Src\Manager\ReadManager;
 use Src\Manager\ConnectManager;
+use App\Router\RouterException;
 
 class VisitorController extends Controller
 {
@@ -19,7 +20,7 @@ class VisitorController extends Controller
 
     public function checkConnectInfo() {
         $adminId = $this->getManager(ConnectManager::class)->getAdminId();
-        $userInp = $this->request->getQueryParams();
+        $userInp = $this->request->getParsedBody();
         if ($adminId["pseudo"] != $userInp["pseudo"]) {
             echo "Pseudo administrateur incorrect";
             return;
@@ -53,6 +54,9 @@ class VisitorController extends Controller
     }
 
     public function goToModel() {
+        if ($this->checkPostData() === false) {
+            throw new RouterException("Le serveur n'a pas tout bien reçu, vous pouvez retourner au menu et recommencer. ");
+        };
         $colSelArr = $this->request->getParsedBody();
         $dbMethod = $this->chooseDbMethod($colSelArr);
         echo $this->view("visitor/visModelBlock.html.twig", [

@@ -65,10 +65,13 @@ function ColFormManager() {
     }
 
     this.subButtAddCb = function(resp) {
+        console.log(resp);
         if (resp == 1) {
             Utils.actInfMsg(FormSel.body, "succ-msg", "couleur bien ajoutée");
-        } else {
-            Utils.actInfMsg(FormSel.body, "fail-msg", "erreur en base de donnée");
+        } else if (resp == 0) {
+            Utils.actInfMsg(FormSel.body, "fail-msg", "erreur en base de donnée, couleur non ajoutée");
+        } else if (resp ==2) {
+            Utils.actInfMsg(FormSel.body, "fail-msg", "formulaire non correctement rempli");
         }
         FormSel.groInp.value = "";
         FormSel.namInp.value = "";
@@ -76,7 +79,6 @@ function ColFormManager() {
     }
 
     this.subButtUpdCb = function(resp) {
-        console.log(this);
         if (resp == 1) {
             Utils.actInfMsg(FormSel.body, "succ-msg", "couleur bien modifiée");
         } else {
@@ -109,7 +111,8 @@ function ColFormManager() {
             return;
         }
         if (self.formAction === "add") {
-            Utils.ajaxGet("admin/add?colorGroup=" + groInp + "&colorName=" + namInp + "&colorHexCode=" + paramHexInp, this.subButtAddCb);   
+            var params = "colorGroup=" + groInp + "&colorName=" + namInp + "&colorHexCode=" + paramHexInp;
+            Utils.ajaxPost("admin/add", params, this.subButtAddCb);   
         } else if (self.formAction === "update") {
             var ColObj = {
                 id: FormSel.colFormDiv.getAttribute("data-id"),
@@ -117,7 +120,8 @@ function ColFormManager() {
                 name: FormSel.namInp.value,
                 hexa: FormSel.hexInp.value.replace("#", "%23"),
             }
-            Utils.ajaxGet("admin/update?id=" + ColObj.id + "&colorGroup=" + ColObj.grp + "&colorName=" + ColObj.name + "&colorHexCode=" + ColObj.hexa, this.subButtUpdCb);  
+            var params = "id=" + ColObj.id + "&colorGroup=" + ColObj.grp + "&colorName=" + ColObj.name + "&colorHexCode=" + ColObj.hexa;
+            Utils.ajaxPost("admin/update", params, this.subButtUpdCb);  
         }   
     }
 

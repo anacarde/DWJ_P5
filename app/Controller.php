@@ -52,8 +52,12 @@ Class Controller
         }
     }
 
-/*    protected function checkAdminAction()
-    {
-        return $this->request->getQueryParams()['action'] ?? FALSE;
-    }*/
+    protected function checkPostData() {
+        $postData = $this->request->getParsedBody();
+        foreach ($postData as $post) {
+            if ($post === "") {
+                return false;
+            }
+        }
+    }
 }

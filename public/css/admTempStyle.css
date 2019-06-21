@@ -78,10 +78,10 @@ button
     right: 0;
     margin: auto;
     width: 50%;
-    height: 5em;
+    height: 1em;
+    padding: 20px 0px;
     border: 1px solid black;
     text-align: center;
-    line-height: 5em;
     font-weight: bold;
     font-size: 1.2em;
 }

@@ -29,7 +29,6 @@ function HeaderManager() {
     }
 
     this.formCallbackFn = function(resp) {
-        console.log(resp);
         TempSel.conInf.textContent = resp;
         TempSel.conInf.classList.remove("hidden");
         if (resp.includes("Connexion")) {
@@ -61,7 +60,8 @@ function HeaderManager() {
             TempSel.contLn.classList.remove("hidden");
             return;
         }
-        Utils.ajaxGet("/connexion?pseudo=" + TempSel.pseudoInp.value.trim() + "&password=" + TempSel.passInp.value.trim(), self.formCallbackFn);
+        var params = "pseudo=" + TempSel.pseudoInp.value.trim() + "&password=" + TempSel.passInp.value.trim();
+        Utils.ajaxPost("/connexion", params, self.formCallbackFn);
     }
 
     this.conFormEvts = function() {
@@ -76,7 +76,7 @@ function HeaderManager() {
         TempSel.passInp.addEventListener('focus', this.remAlertLn);
 
         window.addEventListener('keydown', function(e){
-            if(e.keyCode === 27 && !self.conInner.classList.contains("hidden")) {
+            if(e.keyCode === 27 && !TempSel.conInner.classList.contains("hidden")) {
                 self.closeConFormFn();
             }
         })
@@ -91,18 +91,3 @@ function HeaderManager() {
 var headerManager = new HeaderManager;
 
 headerManager.init();
-
-
-
-
-/*function escapeHtml(text) {
-  var map = {
-    '&': '&amp;',
-    '<': '&lt;',
-    '>': '&gt;',
-    '"': '&quot;',
-    "'": '&#039;'
-  };
-
-  return text.replace(/[&<>"']/g, function(m) { return map[m]; });
-}*/

@@ -48,7 +48,8 @@ function ColTableManager() {
 
     this.updateFn = function(colObj) {
         TabSel.colTableDiv.classList.add("hidden");
-        Utils.ajaxGet("/admin/form/update?id=" + colObj.id + "&grp=" + colObj.grp + "&name=" + colObj.name + "&hex=" + colObj.hex, self.updColForm);
+        var params = "id=" + colObj.id + "&grp=" + colObj.grp + "&name=" + colObj.name + "&hex=" + colObj.hex;
+        Utils.ajaxPost("/admin/form/update", params, self.updColForm);
     }
 
     this.tableAllbtnEvts = function() {
