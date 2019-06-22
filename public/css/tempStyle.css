@@ -78,33 +78,28 @@ select
 #hea-blo
 {
     background-color: #efd78d;
-}
-
-#hea-top-blo
-{
-    background-color: #efd78d;
     display: flex;
     justify-content: space-around;
     align-items: center;
-    padding: 5px;
-    padding-bottom: 0;
+}
+
+#hea-logo-div
+{
+    flex-basis: 20%;
     text-align: center;
 }
 
-#hea-logo
+#hea-logo-div img
 {
-    width: 20%;
-    display: flex;
-    align-items: center;  
-}
-
-#hea-logo img
-{
+    display: block;
+    margin: auto;
+    width: 200px;
 }
 
 #hea-tit-div
 {
-    width: 80%;
+    flex-basis: 60%;
+    text-align: center;
 }
 
 #hea-tit-div h1
@@ -124,40 +119,36 @@ select
     border-radius: 10px;
 }
 
-#hea-med-blo
+#hea-sub-div
 {
-   text-align: right;
-   margin-bottom: 10px;
+   flex-basis: 20%;
+   text-align: center;
 }
 
-#hea-med-blo em
+#hea-sub-div em
 {  
     color: #776223;
     margin-right: 10px;
     font-weight: bold;
 }
 
-#hea-bot-blo
-{
-    margin-top: 0;
-}
-
 #hea-nav
 {
-    
+    background-color: #efd78d;
 }
 
 #hea-nav-ul
 {
+    padding: 0px 0px 10px 0px;
     margin: 0;
     display: flex;
     justify-content: center;
+    align-items: center;
     list-style-type: none;
 }
 
 #hea-nav-ul li
 {
-    margin-bottom: 10px;
     margin-right: 20px;
 }
 

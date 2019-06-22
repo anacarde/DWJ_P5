@@ -85,7 +85,7 @@
   display: flex;
   height: 500px;
   width: 800%;
-  transition: transform ease-in 1s;
+  transition: transform ease-out 1s;
 }
 
 .car_obj

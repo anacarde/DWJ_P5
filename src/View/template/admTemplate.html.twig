@@ -10,43 +10,36 @@
         <link rel="stylesheet" href="/css/admTempStyle.css">
         <link rel="stylesheet" href="/css/admin/colFormStyle.css">
         <link rel="stylesheet" href="/css/admin/colTableStyle.css">
-        {% block stylesheet %} {% endblock %}
     </head>
     <body>
-        <div id="hea-blo">
-            <div id="hea-top-blo">
-                <div id="hea-logo">
-                    <img src="/img/logo.png" alt="logo-quelques-noms-de-couleur" />
-                </div>
-                <div id="hea-tit-div">
-                    <h1> <span> &lt;&lt; Quelques noms de couleurs &gt;&gt; </span> </h1>
-                </div>
+        <header id="hea-blo">
+            <div id="hea-logo-div">
+                <img src="/img/logo.png" alt="logo-quelques-noms-de-couleur" />
+            </div>              
+            <div id="hea-tit-div">
+                <h1> <span> &lt;&lt; Quelques noms de couleurs &gt;&gt; </span> </h1>
             </div>
-            <div id="hea-med-blo">
+            <div id="hea-sub-div">
                 <em> Partie administrateur </em>
             </div>
-            <div id="hea-bot-blo">
-                <nav id="hea-nav">
-                    <ul id="hea-nav-ul">
-                        <li> <button class="nav-butt" id="add-col-butt"> Ajout de couleur </button> </li>
-                        <li id="grp-col-li"> 
-                            <button class="nav-butt" id="han-col-butt" disabled> Modification / Suppression de couleur </button>
-                            <ul id="grp-col-ls">
-                                {% for colGrp in colGrpLs %}
-                                    <li> <button class="col-grp-butt" data-colGrp="{{ colGrp.frColGrp }}" style="background-color: {{ colGrp.enColGrp }};"> Famille des {{ colGrp.frColGrp }}s </button> </li>
-                                {% endfor %}
-                            </ul>
-                        </li>
-                        <li> <button id="back-vis-butt" class="nav-butt"> Retour à l'espace visiteur </button> </li>
+        </header>
+        <nav id="hea-nav">
+            <ul id="hea-nav-ul">
+                <li> <button class="nav-butt" id="add-col-butt"> Ajout de couleur </button> </li>
+                <li id="grp-col-li"> 
+                    <button class="nav-butt" id="han-col-butt" disabled> Modification / Suppression de couleur </button>
+                    <ul id="grp-col-ls">
+                        {% for colGrp in colGrpLs %}
+                            <li> <button class="col-grp-butt" data-colGrp="{{ colGrp.frColGrp }}" style="background-color: {{ colGrp.enColGrp }};"> Famille des {{ colGrp.frColGrp }}s </button> </li>
+                        {% endfor %}
                     </ul>
-                </nav>
-            </div>
-        </div>
+                </li>
+                <li> <button id="back-vis-butt" class="nav-butt"> Retour à l'espace visiteur </button> </li>
+            </ul>
+        </nav>
         <div id="cont-blo">
-        {% block content %} {% endblock %}
         </div>
         <script src="/js/utils.js"> </script>
         <script src="/js/admin/admTempJs.js"> </script>
-        {% block script %} {% endblock %}
     </body>
 </html>

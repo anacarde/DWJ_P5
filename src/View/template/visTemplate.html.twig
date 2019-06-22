@@ -11,27 +11,23 @@
     </head>
     <body>
         <button id="adm-con-butt"> </button>
-        <div id="hea-blo">
-            <div id="hea-top-blo">
-                <div id="hea-logo">
-                    <img src="/img/logo.png" alt="logo-quelques-noms-de-couleur" />
-                </div>
-                <div id="hea-tit-div">
-                    <h1> <span> &lt;&lt; Quelques noms de couleurs &gt;&gt; </span> </h1>
-                </div>
+        <header id="hea-blo">
+            <div id="hea-logo-div">
+                <img src="/img/logo.png" alt="logo-quelques-noms-de-couleur" />
+            </div>              
+            <div id="hea-tit-div">
+                <h1> <span> &lt;&lt; Quelques noms de couleurs &gt;&gt; </span> </h1>
             </div>
-            <div id="hea-med-blo">
+            <div id="hea-sub-div">
                 <em> Un site pour apprendre des noms de couleurs</em>
             </div>
-            <div id="hea-bot-blo">
-                <nav id="hea-nav">
-                    <ul id="hea-nav-ul">
-                        <li> <button id="hom-butt" class="nav-butt"> Accueil </button> </li>
-                        <li> <button id="play-butt" class="nav-butt"> Jouer </button> </li>
-                    </ul>
-                </nav>
-            </div>
-        </div>
+        </header>
+        <nav id="hea-nav">
+            <ul id="hea-nav-ul">
+                <li> <button id="hom-butt" class="nav-butt"> Accueil </button> </li>
+                <li> <button id="play-butt" class="nav-butt"> Jouer </button> </li>
+            </ul>
+        </nav>
         <div id="cont-blo">
         {% block content %} {% endblock %}
         </div>
