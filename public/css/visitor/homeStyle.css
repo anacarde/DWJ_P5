@@ -26,22 +26,27 @@
   -moz-user-select: none;
   -webkit-user-select: none;
   user-select: none;
+  transition: font-size, 0.3s;
+}
+
+.car_butt:hover
+{
+  font-size: 3em;
 }
 
 #pause_butt
 {
   right: 0;
+  
 }
 
 #pause_butt:hover
 {
-  transform: scale(1.1);
 }
 
 #pause_butt.active
 {
-  font-weight: bold;
-  transform: scale(1.1);
+  font-size: 3em;
 }
 
 #arr_div
@@ -62,7 +67,6 @@
 
 .car_arr:active
 {
-  font-weight: bold;
 }
 
 #lef_arr
@@ -81,7 +85,7 @@
   display: flex;
   height: 500px;
   width: 800%;
-  transition: transform 2s;
+  transition: transform ease-in 1s;
 }
 
 .car_obj

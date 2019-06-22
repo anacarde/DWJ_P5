@@ -37,7 +37,7 @@ function GameTwoManager() {
 
     this.stockAnsFn = function(pass) {
         colRGB = getComputedStyle(Sel.colCont).backgroundColor;
-        colName = Sel.colCont.getAttribute('data-col-name').trim();
+        colName = Sel.colCont.getAttribute("data-col-name").trim();
         if (pass === false) {
             colAns = Sel.respInp.value.trim().toLowerCase();
         } else {
@@ -51,7 +51,7 @@ function GameTwoManager() {
     this.swapBackColAndRedArr = function(arr) {
         arrRandNb = Math.floor(Math.random()*arr.length);
         Sel.colCont.style.backgroundColor = arr[arrRandNb][0];
-        Sel.colCont.setAttribute('data-col-name', arr[arrRandNb][1]);
+        Sel.colCont.setAttribute("data-col-name", arr[arrRandNb][1]);
         arr.splice(arrRandNb, 1);
     }
 
@@ -96,8 +96,6 @@ function GameTwoManager() {
     }
 
     this.ansButtFn = function(arr, pass) {
-/*        console.log(this);
-        console.log(self);*/
         clearInterval(this.interval);
         if(arr.length != 0) {
             this.stockAndSwap(arr, pass);
@@ -128,14 +126,14 @@ function GameTwoManager() {
 
     this.keyEvt = function(arr) {
         window.addEventListener("keydown", function(e) {
-            if(e.keyCode === 27) {
+            if(e.keyCode === 27 && !Sel.passButt.classList.contains("hidden")) {
                 Sel.passButt.click();
                 Sel.passButt.classList.add("active");
                 setTimeout(function() {
                     Sel.passButt.classList.remove("active")
                 }, 200);
             }
-            if(e.keyCode === 13) {
+            if(e.keyCode === 13 && !Sel.valButt.classList.contains("hidden")) {
                 Sel.valButt.click();
                 Sel.valButt.classList.add("active");
                 setTimeout(function() {

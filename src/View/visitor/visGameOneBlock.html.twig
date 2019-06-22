@@ -16,7 +16,7 @@
         {% if serverData == TRUE %}
             {% for color in colSel %}
                 <div class="col-blo">
-                    <div class="col-squ" data-col-name=" {{ color.colorName }}" style="background-color: {{ color.colorHexCode }};"> </div>
+                    <div class="col-squ" data-col-name="{{ color.colorName }}" style="background-color: {{ color.colorHexCode }};"> </div>
                     <input type="text" class="col-inp" />
                 </div>
             {% endfor %}

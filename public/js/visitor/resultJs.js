@@ -43,10 +43,28 @@ function ResultManager() {
         return numRet;
     }
 
+    this.rawString = function(str) {
+        str = str.split(/[ ']/);
+        str = str[str.length -1];
+        str = str.toLowerCase();
+        if (str.includes("é")) {
+            str = str.replace(/é/g, "e")
+        }
+        if (str.includes("ê")) {
+            str = str.replace(/ê/g, "e")
+        }
+        if (str.includes("û")) {
+            str = str.replace(/û/g, "u")
+        }
+        return str;
+    }
+
     this.getGameResFromArr = function(arr){
         var nb = 0;
         for (var i = 0 ; i < arr.length ; i++) {
-            if (arr[i][1] === arr[i][2]) {
+            var str1 = this.rawString(arr[i][1]);
+            var str2 = this.rawString(arr[i][2]);
+            if (str1 === str2) {
                 nb++;
             }
         }
@@ -95,7 +113,9 @@ function ResultManager() {
 
     this.dispGameErrFromArr = function(arr, div) {
         for (var i = 0 ; i < arr.length ; i++) {
-            if (arr[i][1] !== arr[i][2]) {
+            var str1 = this.rawString(arr[i][1]);
+            var str2 = this.rawString(arr[i][2]);
+            if (str1 !== str2) {
                 this.dispGameErrBlo(div, arr[i][0], arr[i][1], arr[i][2]);
             }
         }

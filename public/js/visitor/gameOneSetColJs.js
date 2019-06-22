@@ -28,9 +28,9 @@ function SetColBloManager() {
 
     this.addColBloInHTML = function(colName, colRGB) {
         var inner = [
-            "<div class='col-blo'>",
-                "<div class='col-squ' data-col-name='" + colName + "' style='background-color:" + colRGB + ";'> </div>",
-                "<input type='text' class='col-inp' />",
+            "<div class=\"col-blo\">",
+                "<div class=\"col-squ\" data-col-name=\"" + colName + "\" style=\"background-color:" + colRGB + ";\"> </div>",
+                "<input type=\"text\" class=\"col-inp\" />",
             "</div>"
         ].join('');
 

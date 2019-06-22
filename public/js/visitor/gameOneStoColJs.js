@@ -12,7 +12,7 @@ function GameOneStorageBackup() {
     this.getColDataArr = function() {
         for ( var i = 0 ; i < Sel.colBlo.length ; i++) {
             colRgb = getComputedStyle(Sel.colBlo[i].children[0]).backgroundColor.trim();
-            colName = Sel.colBlo[i].children[0].getAttribute('data-col-name').trim();
+            colName = Sel.colBlo[i].children[0].getAttribute("data-col-name").trim();
             colAnsw = Sel.colBlo[i].children[1].value.trim();
             colDataArr.push([colRgb, colName, colAnsw]);
         }
