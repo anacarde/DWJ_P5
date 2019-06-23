@@ -106,7 +106,8 @@
   padding-bottom: 20px;
 }
 
-.car_img
+.car_img:not(.no-border)
 {
-    
+  border: 1px solid black;
+  box-shadow: 0 0 5px 0px;
 }
