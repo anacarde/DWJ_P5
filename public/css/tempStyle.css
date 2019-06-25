@@ -108,8 +108,7 @@ select
     font-family: 'Permanent Marker';
     font-style: italic;
     font-size: 2.5em;
-    color: #776223;
-    
+    color: #776223;  
 }
 
 #hea-tit-div h1 span
@@ -244,7 +243,21 @@ select
 
 @media all and (max-width: 768px)
 {
-    #cont-blo
+    
+    #hea-logo-div
     {
+        display: none;
+    }
+    
+    #hea-blo
+    {
+        display: flex;
+        flex-direction: column;
+        padding-bottom: 10px;
+    }
+    
+    #hea-tit-div h1
+    {  
+        font-size: 2em;
     }
 }

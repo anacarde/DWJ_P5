@@ -85,7 +85,7 @@
 
 .car_obj
 {
-  box-sizing: content-box;
+  box-sizing: border-box;
   padding: 60px;
   display: flex;
   flex-direction: column;
@@ -105,4 +105,12 @@
 {
   border: 1px solid black;
   box-shadow: 0 0 5px 0px;
+}
+
+@media all and (max-width: 600px)
+{
+    .car_img img
+    {
+      width: 90vw;
+    }
 }

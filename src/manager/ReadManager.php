@@ -58,7 +58,7 @@ class ReadManager extends Manager
     }
 
     public function getColGrpContent($colGrpName) {
-        $req = Manager::dbConnect()->prepare('SELECT * FROM color_ls WHERE color_group = :colGrpName');
+        $req = Manager::dbConnect()->prepare('SELECT * FROM color_ls WHERE color_group = :colGrpName ORDER BY id DESC');
         $req->bindValue(":colGrpName", $colGrpName);
         $req->execute();
         $req->setFetchMode(\PDO::FETCH_CLASS | \PDO::FETCH_PROPS_LATE, 'Src\Model\Color');
