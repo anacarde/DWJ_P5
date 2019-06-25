@@ -120,7 +120,8 @@ function ResultManager() {
 
     this.menuRedirectEvt = function() {
         Sel.redButt.addEventListener("click", function() {
-            sessionStorage.clear();
+            sessionStorage.removeItem("game-one-col-data");
+            sessionStorage.removeItem("game-two-col-data");
             window.location = "/play";
         })
     }

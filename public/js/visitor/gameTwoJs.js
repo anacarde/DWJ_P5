@@ -78,7 +78,6 @@ function GameTwoManager() {
 
     this.sandIntFn = function(arr, pass) {
         if(timSandHeiOnMv <= 0) {
-            // this.arrLenRelAct(arr);
             if(arr.length != 0) {
                 this.stockAndSwap(arr, pass);
             } else {

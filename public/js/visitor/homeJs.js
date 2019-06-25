@@ -78,14 +78,22 @@ var Carousel = {
     carWithKeys: function() {
         window.addEventListener("keydown", function(e) {
             if(e.keyCode === 37) {
+                Sel.lefArr.classList.add("active");
                 Carousel.carStopIntAndMv(0, -87.5, 12.5);
+                setTimeout(function() {
+                    Sel.lefArr.classList.remove("active");
+                }, 200);
             }
             if(e.keyCode === 32) {
                 e.preventDefault();
                 Carousel.carPause();
             }
             if(e.keyCode === 39) {
+                Sel.rigArr.classList.add("active");
                 Carousel.carStopIntAndMv(-87.5, 0, -12.5);
+                setTimeout(function() {
+                    Sel.rigArr.classList.remove("active");
+                }, 200);
             }
         });
     },

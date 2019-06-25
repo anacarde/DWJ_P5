@@ -9,6 +9,7 @@ var TempSel = {
     formSub: document.getElementById('form-sub'),
     contLn: document.getElementById('cont-ln'),
     conInf: document.getElementById('con-inf'),
+    nextPagButt: document.getElementsByClassName("next-pag-butt"),
 }
 
 function HeaderManager() {
@@ -78,6 +79,16 @@ function HeaderManager() {
         window.addEventListener('keydown', function(e){
             if(e.keyCode === 27 && !TempSel.conInner.classList.contains("hidden")) {
                 self.closeConFormFn();
+            }
+
+            if(e.keyCode === 13 && TempSel.nextPagButt[0] != false) {
+                if (!TempSel.nextPagButt[0].classList.contains("hidden")) {
+                    TempSel.nextPagButt[0].classList.add("active");
+                    setTimeout(function() {
+                        TempSel.nextPagButt[0].classList.remove("active");
+                    }, 200);
+                    TempSel.nextPagButt[0].click();
+                }
             }
         })
     }

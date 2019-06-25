@@ -29,7 +29,7 @@
   transition: font-size, 0.3s;
 }
 
-.car_butt:hover
+.car_butt:hover, .car_butt.active
 {
   font-size: 3em;
 }
@@ -42,11 +42,6 @@
 
 #pause_butt:hover
 {
-}
-
-#pause_butt.active
-{
-  font-size: 3em;
 }
 
 #arr_div
