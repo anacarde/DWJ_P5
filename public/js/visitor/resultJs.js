@@ -47,11 +47,8 @@ function ResultManager() {
         str = str.split(/[ ']/);
         str = str[str.length -1];
         str = str.toLowerCase();
-        if (str.includes("é")) {
-            str = str.replace(/é/g, "e")
-        }
-        if (str.includes("ê")) {
-            str = str.replace(/ê/g, "e")
+        if (/é|è|ê/.test(str) === true) {
+            str = str.replace(/é|è|ê/g, "e");
         }
         if (str.includes("û")) {
             str = str.replace(/û/g, "u")

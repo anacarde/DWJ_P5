@@ -2,6 +2,9 @@
 
 namespace Src\Controller;
 
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\RedirectResponse;
 use App\Controller;
 use Src\Model\Color;
 use Src\Manager\ReadManager;
@@ -12,62 +15,65 @@ class AdminController extends Controller
 
     public function goToAdmin() {
         $this->checkConnexion();
-        echo $this->view("template/admTemplate.html.twig", [
+        $resp = $this->view("template/admTemplate.html.twig", [
                 "colGrpLs" => $this->getManager(ReadManager::class)->getColGrpList(),
             ]);
+        return new Response($resp);
     }
 
     public function getAddColBlock() {
         $this->checkConnexion();
-        echo $this->view("admin/admColForm.html.twig", [
+        $resp = $this->view("admin/admColForm.html.twig", [
             "colGrpLs" => $this->getManager(ReadManager::class)->getColGrpList(),
             "action" => "add"
         ]);
+        return new Response($resp);
     }
 
-    public function getUpdColBlock() {
+    public function getUpdColBlock(Request $request) {
         $this->checkConnexion();
-        echo $this->view("admin/admColForm.html.twig", [
+        $resp = $this->view("admin/admColForm.html.twig", [
             "colGrpLs" => $this->getManager(ReadManager::class)->getColGrpList(),
-            "colUpdInf" => $this->request->getParsedBody(),
+            "colUpdInf" => $request->request->all(),
             "action" => "update"
         ]);
+        return new Response($resp);
     }
 
-    public function getColTableBlock() {
+    public function getColTableBlock($colGrp) {
         $this->checkConnexion();
-        echo $this->view("admin/admColTable.html.twig", [
-            "colGrp" => $this->getManager(ReadManager::class)->getColGrpContent($this->args['colGrp']),
-            "colGrpName" => $this->getManager(ReadManager::class)->getSingleColGrpName($this->args['colGrp']),
+        $resp = $this->view("admin/admColTable.html.twig", [
+            "colGrp" => $this->getManager(ReadManager::class)->getColGrpContent($colGrp),
+            "colGrpName" => $this->getManager(ReadManager::class)->getSingleColGrpName($colGrp),
         ]);
+        return new Response($resp);
     }
 
-    public function addAction() {
+    public function addAction(Request $request) {
         $this->checkConnexion();
-        if ($this->checkPostData() === false) {
-            echo 2;
-            return;
+        if ($this->checkPostData($request->request->all()) === false) {
+            return new Response("2");
         }
-        $colObj = $this->getManager(Color::class, $this->request->getParsedBody());
-        $reqSucc = $this->getManager(ActionManager::class)->add($colObj);
-        echo $reqSucc;
+        $colObj = $this->getManager(Color::class, $request->request->all());
+        $resp = $this->getManager(ActionManager::class)->add($colObj);
+        return new Response(strval($resp));
     }
 
-    public function deleteAction() {
+    public function deleteAction($id) {
         $this->checkConnexion();
-        $reqSucc = $this->getManager(ActionManager::class)->delete($this->args['id']);
-        echo $reqSucc;
+        $resp = $this->getManager(ActionManager::class)->delete($id);
+        return new Response(strval($resp));
     }
 
-    public function updateAction() {
+    public function updateAction(Request $request) {
         $this->checkConnexion();
-        $colObj = $this->getManager(Color::class, $this->request->getParsedBody());
-        $reqSucc = $this->getManager(ActionManager::class)->update($colObj);
-        echo $reqSucc;
+        $colObj = $this->getManager(Color::class, $request->request->all());
+        $resp = $this->getManager(ActionManager::class)->update($colObj);
+        return new Response(strval($resp));
     }
 
     public function disconnectAction() {
         $_SESSION['connexion'] = FALSE;
-        $this->redirect("/");
+        return new RedirectResponse("/");
     }
 }

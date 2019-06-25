@@ -28,7 +28,7 @@ function ColTableManager() {
     }
 
     this.deleteFnCb = function(resp) {
-        if (resp == 1) {
+        if (resp === "1") {
             var colGrp = TabSel.table.getAttribute("data-colgrp");
             Utils.actInfMsg(TabSel.body, "succ-msg", "couleur bien supprimée");
             Utils.ajaxGet("/admin/table/" + colGrp, this.updBlockCb);

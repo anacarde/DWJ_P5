@@ -1,101 +1,67 @@
 index:
   path: /
-  parameters: {}
-  controller: \Src\Controller\VisitorController
-  action: goToIndex
+  controller: \Src\Controller\VisitorController::goToIndex
 
 menu:
   path: /play
-  parameters: {}
-  controller: \Src\Controller\VisitorController
-  action: goToMenu
+  controller: \Src\Controller\VisitorController::goToMenu
 
 nbSelect:
-  path: /play/sel-col-nb/:filt
-  parameters: {filt: '?<filt>[A-Za-z]+'}
-  controller: \Src\Controller\VisitorController
-  action: nbColSelect
+  path: /play/sel-col-nb/{filter<[A-Za-z]+>}
+  controller: \Src\Controller\VisitorController::nbColSelect
 
 model:
   path: /play/model
-  parameters: {}
-  controller: \Src\Controller\VisitorController
-  action: goToModel
+  controller: \Src\Controller\VisitorController::goToModel
 
 gameOneByMenu:
   path: /play/game-one
-  parameters: {}
-  controller: \Src\Controller\VisitorController
-  action: goFromMenuToGameOne
+  controller: \Src\Controller\VisitorController::goFromMenuToGameOne
 
 gameOneByModel:
   path: /play/model/game-one
-  parameters: {}
-  controller: \Src\Controller\VisitorController
-  action: goFromModelToGameOne
+  controller: \Src\Controller\VisitorController::goFromModelToGameOne
 
 gameTwo:
   path: /play/game-two
-  parameters: {}
-  controller: \Src\Controller\VisitorController
-  action: goToGameTwo
+  controller: \Src\Controller\VisitorController::goToGameTwo
 
 result:
   path: /play/result
-  parameters: {}
-  controller: \Src\Controller\VisitorController
-  action: goToResult
+  controller: \Src\Controller\VisitorController::goToResult
 
 connexion:
   path: /connexion
-  parameters: {}
-  controller: \Src\Controller\VisitorController
-  action: checkConnectInfo
+  controller: \Src\Controller\VisitorController::checkConnectInfo
 
 admin:
   path: /admin
-  parameters: {}
-  controller: \Src\Controller\AdminController
-  action: goToAdmin
+  controller: \Src\Controller\AdminController::goToAdmin
 
 addForm:
   path: /admin/form/add
-  parameters: {}
-  controller: \Src\Controller\AdminController
-  action: getAddColBlock
+  controller: \Src\Controller\AdminController::getAddColBlock
 
 updateForm:
   path: /admin/form/update
-  parameters: {}
-  controller: \Src\Controller\AdminController
-  action: getUpdColBlock
+  controller: \Src\Controller\AdminController::getUpdColBlock
 
 colorTable:
-  path: /admin/table/:colGrp
-  parameters: {colGrp: '?<colGrp>[a-zA-Z]+'}
-  controller: \Src\Controller\AdminController
-  action: getColTableBlock
+  path: /admin/table/{colGrp<[a-zA-Z]+>}
+  controller: \Src\Controller\AdminController::getColTableBlock
 
 add:
   path: /admin/add
-  parameters: {}
-  controller: \Src\Controller\AdminController
-  action: addAction
+  controller: \Src\Controller\AdminController::addAction
 
 delete:
-  path: /admin/delete/:id
-  parameters: {id: '?<id>[\d]+'}
-  controller: \Src\Controller\AdminController
-  action: deleteAction
+  path: /admin/delete/{id<[\d]+>}
+  controller: \Src\Controller\AdminController::deleteAction
 
 update:
   path: /admin/update
-  parameters: {}
-  controller: \Src\Controller\AdminController
-  action: updateAction
+  controller: \Src\Controller\AdminController::updateAction
 
 disconnect:
   path: /admin/disconnect
-  parameters: {}
-  controller: \Src\Controller\AdminController
-  action: disconnectAction
+  controller: \Src\Controller\AdminController::disconnectAction

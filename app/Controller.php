@@ -2,6 +2,7 @@
 
 namespace App;
 
+use Symfony\Component\HttpFoundation\Request;
 use Twig\Environment;
 use Twig\Loader\FilesystemLoader;
 use App\Router\RouterException;
@@ -16,12 +17,9 @@ Class Controller
 
     private $twig;
 
-    public function __construct($request, $args)
+    public function __construct()
     {
         session_start();
-        $this->request = $request;
-        $this->args = $args;
-
         $loader = new FilesystemLoader(__DIR__. '/../src/View');
         $this->twig = new Environment($loader);
     }
@@ -40,11 +38,6 @@ Class Controller
         return $this->twig->render($view, $data);
     }
 
-    protected function redirect($url)
-    {
-        return header('location:' . $url);
-    }
-
     protected function checkConnexion()
     {
         if (!isset($_SESSION["connexion"]) || $_SESSION["connexion"] != TRUE) {
@@ -52,8 +45,7 @@ Class Controller
         }
     }
 
-    protected function checkPostData() {
-        $postData = $this->request->getParsedBody();
+    protected function checkPostData(Array $postData) {
         foreach ($postData as $post) {
             if ($post === "") {
                 return false;

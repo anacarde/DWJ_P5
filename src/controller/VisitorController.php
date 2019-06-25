@@ -2,6 +2,8 @@
 
 namespace Src\Controller;
 
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 use App\Controller;
 use Src\Manager\ReadManager;
 use Src\Manager\ConnectManager;
@@ -18,74 +20,83 @@ class VisitorController extends Controller
         return $manMeth;
     }
 
-    public function checkConnectInfo() {
+    public function checkConnectInfo(Request $request) {
         $adminId = $this->getManager(ConnectManager::class)->getAdminId();
-        $userInp = $this->request->getParsedBody();
+        $userInp = $request->request->all();
         if ($adminId["pseudo"] != $userInp["pseudo"]) {
-            echo "Pseudo administrateur incorrect";
-            return;
+            $resp = "Pseudo administrateur incorrect";
+            return new Response($resp);
         }
         if (!password_verify($userInp["password"], $adminId["hash_password"])) {
-            echo "Mot de passe incorrect";
-            return;
+            $resp = "Mot de passe incorrect";
+            return new Response($resp);
         }
         $_SESSION["connexion"] = TRUE;
-        echo "Connexion à votre espace en cours";
+        $resp = "Connexion à votre espace en cours";
+        return new Response($resp);
     }
 
-    public function nbColSelect() {
-        if ($this->args["filt"] === "rand") {
-            echo $this->getManager(ReadManager::class)->getTotColNb();
+    public function nbColSelect($filter) {
+        if ($filter === "rand") {
+            $resp = $this->getManager(ReadManager::class)->getTotColNb();
         } else {
-            echo $this->getManager(ReadManager::class)->getColNbByFam($this->args["filt"]);
+            $resp = $this->getManager(ReadManager::class)->getColNbByFam($filter);
         }
+        return new Response($resp);
     }
 
     public function goToIndex() {
-        echo $this->view("visitor/visHomeBlock.html.twig", [
+        $resp = $this->view("visitor/visHomeBlock.html.twig", [
         ]);
+        return new Response($resp);
     }
 
     public function goToMenu() {
-        echo $this->view("visitor/visMenuBlock.html.twig", [
+        $resp = $this->view("visitor/visMenuBlock.html.twig", [
             "colGrpLs" => $this->getManager(ReadManager::class)->getColGrpList(),
             "totColNb" => $this->getManager(ReadManager::class)->getTotColNb(),
         ]);
+        return new Response($resp);
     }
 
-    public function goToModel() {
-        if ($this->checkPostData() === false) {
+    public function goToModel(Request $request) {
+        $colSelArr = $request->request->all();
+        if ($this->checkPostData($colSelArr) === false) {
             throw new RouterException("Le serveur n'a pas tout bien reçu, vous pouvez retourner au menu et recommencer. ");
         };
-        $colSelArr = $this->request->getParsedBody();
         $dbMethod = $this->chooseDbMethod($colSelArr);
-        echo $this->view("visitor/visModelBlock.html.twig", [
+        $resp = $this->view("visitor/visModelBlock.html.twig", [
             "colSel" => call_user_func([$this->getManager(ReadManager::class), $dbMethod], $colSelArr),
         ]);
+        return new Response($resp);
     }
 
-    public function goFromMenuToGameOne() {
-        $colSelArr = $this->request->getParsedBody();
+    public function goFromMenuToGameOne(Request $request) {
+        $colSelArr = $request->request->all();
         $dbMethod = $this->chooseDbMethod($colSelArr);
-        echo $this->view("visitor/visGameOneBlock.html.twig", [
+        $resp = $this->view("visitor/visGameOneBlock.html.twig", [
             "colSel" => call_user_func([$this->getManager(ReadManager::class), $dbMethod], $colSelArr),
             "serverData" => TRUE,
         ]);
+        return new Response($resp);
     }
 
     public function goFromModelToGameOne() {
-        echo $this->view("visitor/visGameOneBlock.html.twig", [
+        $resp = $this->view("visitor/visGameOneBlock.html.twig", [
             "serverData" => FALSE,
         ]);
+        return new Response($resp);
     }
 
     public function goToGameTwo() {
-        echo $this->view("visitor/visGameTwoBlock.html.twig", [
+        $resp = $this->view("visitor/visGameTwoBlock.html.twig", [
         ]);
+        return new Response($resp);
     }
 
     public function goToResult() {
-        echo $this->view("visitor/visResultBlock.html.twig", [
+        $resp = $this->view("visitor/visResultBlock.html.twig", [
         ]);
+        return new Response($resp);
     }
 }

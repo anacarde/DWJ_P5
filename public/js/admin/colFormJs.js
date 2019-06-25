@@ -65,12 +65,11 @@ function ColFormManager() {
     }
 
     this.subButtAddCb = function(resp) {
-        console.log(resp);
-        if (resp == 1) {
+        if (resp === "1") {
             Utils.actInfMsg(FormSel.body, "succ-msg", "couleur bien ajoutée");
-        } else if (resp == 0) {
+        } else if (resp === "0") {
             Utils.actInfMsg(FormSel.body, "fail-msg", "erreur en base de donnée, couleur non ajoutée");
-        } else if (resp ==2) {
+        } else if (resp === "2") {
             Utils.actInfMsg(FormSel.body, "fail-msg", "formulaire non correctement rempli");
         }
         FormSel.groInp.value = "";
@@ -79,7 +78,7 @@ function ColFormManager() {
     }
 
     this.subButtUpdCb = function(resp) {
-        if (resp == 1) {
+        if (resp === "1") {
             Utils.actInfMsg(FormSel.body, "succ-msg", "couleur bien modifiée");
         } else {
             Utils.actInfMsg(FormSel.body, "fail-msg", "erreur en base de donnée");
@@ -112,7 +111,7 @@ function ColFormManager() {
         }
         if (self.formAction === "add") {
             var params = "colorGroup=" + groInp + "&colorName=" + namInp + "&colorHexCode=" + paramHexInp;
-            Utils.ajaxPost("admin/add", params, this.subButtAddCb);   
+            Utils.ajaxPost("/admin/add", params, this.subButtAddCb);
         } else if (self.formAction === "update") {
             var ColObj = {
                 id: FormSel.colFormDiv.getAttribute("data-id"),
@@ -121,7 +120,7 @@ function ColFormManager() {
                 hexa: FormSel.hexInp.value.replace("#", "%23"),
             }
             var params = "id=" + ColObj.id + "&colorGroup=" + ColObj.grp + "&colorName=" + ColObj.name + "&colorHexCode=" + ColObj.hexa;
-            Utils.ajaxPost("admin/update", params, this.subButtUpdCb);  
+            Utils.ajaxPost("/admin/update", params, this.subButtUpdCb);  
         }   
     }
 
