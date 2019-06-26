@@ -1,7 +1,4 @@
-#cont_inn
-{
 
-}
 
 #carousel
 {
@@ -40,15 +37,6 @@
   
 }
 
-#pause_butt:hover
-{
-}
-
-#arr_div
-{
-    
-}
-
 .car_arr
 {
   top: 50%;
@@ -58,15 +46,6 @@
 .car_arr:hover
 {
   transform: translateY(-50%) scale(1.1);
-}
-
-.car_arr:active
-{
-}
-
-#lef_arr
-{
-    
 }
 
 #rig_arr

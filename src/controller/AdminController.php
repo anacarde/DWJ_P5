@@ -14,7 +14,6 @@ class AdminController extends Controller
 {
 
     public function goToAdmin() {
-        $this->checkConnexion();
         $resp = $this->view("template/admTemplate.html.twig", [
                 "colGrpLs" => $this->getManager(ReadManager::class)->getColGrpList(),
             ]);
@@ -22,7 +21,6 @@ class AdminController extends Controller
     }
 
     public function getAddColBlock() {
-        $this->checkConnexion();
         $resp = $this->view("admin/admColForm.html.twig", [
             "colGrpLs" => $this->getManager(ReadManager::class)->getColGrpList(),
             "action" => "add"
@@ -31,7 +29,6 @@ class AdminController extends Controller
     }
 
     public function getUpdColBlock(Request $request) {
-        $this->checkConnexion();
         $resp = $this->view("admin/admColForm.html.twig", [
             "colGrpLs" => $this->getManager(ReadManager::class)->getColGrpList(),
             "colUpdInf" => $request->request->all(),
@@ -41,7 +38,6 @@ class AdminController extends Controller
     }
 
     public function getColTableBlock($colGrp) {
-        $this->checkConnexion();
         $resp = $this->view("admin/admColTable.html.twig", [
             "colGrp" => $this->getManager(ReadManager::class)->getColGrpContent($colGrp),
             "colGrpName" => $this->getManager(ReadManager::class)->getSingleColGrpName($colGrp),
@@ -50,7 +46,6 @@ class AdminController extends Controller
     }
 
     public function addAction(Request $request) {
-        $this->checkConnexion();
         if ($this->checkPostData($request->request->all()) === false) {
             return new Response("2");
         }
@@ -60,13 +55,11 @@ class AdminController extends Controller
     }
 
     public function deleteAction($id) {
-        $this->checkConnexion();
         $resp = $this->getManager(ActionManager::class)->delete($id);
         return new Response(strval($resp));
     }
 
     public function updateAction(Request $request) {
-        $this->checkConnexion();
         $colObj = $this->getManager(Color::class, $request->request->all());
         $resp = $this->getManager(ActionManager::class)->update($colObj);
         return new Response(strval($resp));

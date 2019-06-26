@@ -10,15 +10,14 @@ Class Controller
 {
     private static $managers = [];
 
-    protected $request;
-
-    protected $args;
-
     private $twig;
 
     public function __construct()
     {
         session_start();
+        if (get_class($this) === "Src\Controller\AdminController") {            
+            $this->checkConnexion();
+        }
         $loader = new FilesystemLoader(__DIR__. '/../src/View');
         $this->twig = new Environment($loader);
     }
@@ -40,12 +39,7 @@ Class Controller
     protected function checkConnexion()
     {
         if (!isset($_SESSION["connexion"]) || $_SESSION["connexion"] != TRUE) {
-            // var_dump('coco');
             throw new RouterException("Vous ne pouvez pas accéder à l'espace administrateur sans vous être connecté !");
-        //     $resp = $this->view("errorBlock.html.twig", [
-        //     "errorMessage" => "Vous ne pouvez pas accéder à l'espace administrateur sans vous être connecté !",
-        //     ]);
-        // return new Response($resp);
         }
     }
 

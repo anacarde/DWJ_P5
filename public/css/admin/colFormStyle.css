@@ -14,11 +14,6 @@
   text-align: right;
 }
 
-#form-close
-{
-       
-}
-
 form
 {
   display: flex;
@@ -63,29 +58,11 @@ form div
   box-shadow: 0 0 5px 1px red;
 }
 
-#gro-inp
-{
-    
-}
-
-#nam-inp
-{
-    
-}
-
-#hex-inp
-{
-}
-
 #col-prev
 {
   border: 1px solid black;
   width: 150px;
   height: 50px;
-}
-
-#sub-butt
-{
 }
 
 .inp-err
