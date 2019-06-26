@@ -5,9 +5,10 @@ namespace Src\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use App\Controller;
+use App\RouterException;
 use Src\Manager\ReadManager;
 use Src\Manager\ConnectManager;
-use App\Router\RouterException;
+
 
 class VisitorController extends Controller
 {

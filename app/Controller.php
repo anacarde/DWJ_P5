@@ -2,10 +2,9 @@
 
 namespace App;
 
-use Symfony\Component\HttpFoundation\Request;
 use Twig\Environment;
 use Twig\Loader\FilesystemLoader;
-use App\Router\RouterException;
+use App\RouterException;
 
 Class Controller
 {
@@ -41,7 +40,12 @@ Class Controller
     protected function checkConnexion()
     {
         if (!isset($_SESSION["connexion"]) || $_SESSION["connexion"] != TRUE) {
+            // var_dump('coco');
             throw new RouterException("Vous ne pouvez pas accéder à l'espace administrateur sans vous être connecté !");
+        //     $resp = $this->view("errorBlock.html.twig", [
+        //     "errorMessage" => "Vous ne pouvez pas accéder à l'espace administrateur sans vous être connecté !",
+        //     ]);
+        // return new Response($resp);
         }
     }
 

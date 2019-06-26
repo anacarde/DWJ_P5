@@ -10,8 +10,6 @@
     ],
     "minimum-stability": "dev",
     "require": {
-        "zendframework/zend-diactoros": "1.8.x-dev",
-        "zendframework/zend-httphandlerrunner": "^1.1@dev",
         "symfony/yaml": "^4.3@dev",
         "twig/twig": "^2.0",
         "symfony/dotenv": "4.4.x-dev",
