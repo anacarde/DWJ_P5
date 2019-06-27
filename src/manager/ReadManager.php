@@ -3,8 +3,6 @@
 namespace Src\Manager;
 
 use App\Manager;
-/*use Src\Model\Color;
-use Src\Model\ColorGrp;*/
 
 class ReadManager extends Manager
 {

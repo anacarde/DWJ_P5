@@ -45,7 +45,6 @@ function GameTwoManager() {
         }
         Sel.respInp.value = '';
         this.useAnsData.push([colRGB, colName, colAns]);
-        // console.log(this.useAnsData);
     }
 
     this.swapBackColAndRedArr = function(arr) {

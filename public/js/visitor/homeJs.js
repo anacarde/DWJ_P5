@@ -7,7 +7,6 @@ var Sel = {
     rigArr: document.getElementById('rig_arr')
 }
 
-
 var Carousel = {
 
     intNb: 7000,
